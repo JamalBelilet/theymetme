@@ -10,6 +10,11 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {LoginScannerPage} from '../pages/login-scanner/login-scanner';
+import {LoginPage} from '../pages/login/login';
+import {EventsPage} from '../pages/events/events';
+import {EventsHolderComponent} from '../components/events-holder/events-holder';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +22,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    LoginScannerPage,
+    LoginPage,
+    EventsPage,
+    EventsHolderComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +38,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    LoginScannerPage,
+    LoginPage,
+    EventsPage
   ],
   providers: [
     StatusBar,
