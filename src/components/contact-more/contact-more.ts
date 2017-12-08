@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ViewController } from 'ionic-angular';
+import { ViewController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the ContactMoreComponent component.
@@ -10,18 +10,29 @@ import { ViewController } from 'ionic-angular';
 @Component({
   template: `
   <ion-list>
-    <ion-list-header>Ionic</ion-list-header>
-    <button ion-item (click)="close()">Learn Ionic</button>
-    <button ion-item (click)="close()">Documentation</button>
-    <button ion-item (click)="close()">Showcase</button>
-    <button ion-item (click)="close()">GitHub Repo</button>
+    <button ion-item full (click)="callContact()"><ion-icon  name="call" clear >{{navParams.data.phone}}</ion-icon></button>
+    <button ion-item full (click)="SendMail()"><ion-icon  name="mail" clear >{{navParams.data.email}}</ion-icon></button>
   </ion-list>
 `
 })
 export class ContactMoreComponent {
 
-  constructor(public viewCtrl: ViewController) {}
-  
+  constructor(public viewCtrl: ViewController,private navParams:NavParams) {
+  }
+  callContact(){
+    this.close();
+    setTimeout(() => {
+      window.open(`tel:${this.navParams.data.contact.phone}`, '_system');
+    },100);
+  }
+
+  sendMail(){
+    this.close();
+    setTimeout(() => {
+      window.open(`mailto:${this.navParams.data.contact.email}`, '_system');
+    },100);
+  }
+
     close() {
       this.viewCtrl.dismiss();
     }

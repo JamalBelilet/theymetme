@@ -27,20 +27,9 @@ export class ContactsHolderComponent {
   
   }
 
-  callContact(){
-    setTimeout(() => {
-      window.open(`tel:${this.contact.phone}`, '_system');
-    },100);
-  }
-
-  sendMail(){
-    setTimeout(() => {
-      window.open(`mailto:${this.contact.email}`, '_system');
-    },100);
-  }
-
+  
   presentPopover(myEvent){
-    let popover = this.popoverCtrl.create(ContactMoreComponent);
+    let popover = this.popoverCtrl.create(ContactMoreComponent,this.contact);
     popover.present({
       ev: myEvent
     });
