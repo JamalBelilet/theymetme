@@ -25,7 +25,19 @@ import {MyeventsPage} from '../pages/myevents/myevents';
 import {DatePicker} from '@ionic-native/date-picker';
 import {ImagePicker} from '@ionic-native/image-picker';
 
+import { FirebaseProvider } from '../providers/firebase/firebase';
+import { HttpModule } from '@angular/http';
+import { AngularFireDatabaseModule } from 'angularfire2/database'
+import { AngularFireModule } from 'angularfire2';
 
+const config = {
+  apiKey: "AIzaSyB7NZ4odUf_vBalWkW5tHeWNqwGOR7I958",
+  authDomain: "theymetme-be7fa.firebaseapp.com",
+  databaseURL: "https://theymetme-be7fa.firebaseio.com",
+  projectId: "theymetme-be7fa",
+  storageBucket: "theymetme-be7fa.appspot.com",
+  messagingSenderId: "44686374750"
+};
 @NgModule({
 
   declarations: [
@@ -47,7 +59,10 @@ import {ImagePicker} from '@ionic-native/image-picker';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(config),
     NgxQRCodeModule,
 
   ],
@@ -72,7 +87,7 @@ import {ImagePicker} from '@ionic-native/image-picker';
     SplashScreen,
     BarcodeScanner,
     DatePicker,
-    ImagePicker,
+    ImagePicker,FirebaseProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

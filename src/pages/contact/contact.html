@@ -39,7 +39,7 @@
 
     <ion-scroll scrollY style="margin-top: -1em;" >
       <ion-list >
-        <contacts-holder *ngFor="let contact of contacts" [contact]="contact"></contacts-holder>
+        <contacts-holder *ngFor="let contact of contacts | async" [contact]="contact"></contacts-holder>
       </ion-list>
     </ion-scroll>
   </div>

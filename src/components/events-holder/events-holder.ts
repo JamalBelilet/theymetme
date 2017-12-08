@@ -15,7 +15,8 @@ export class EventsHolderComponent {
     name: string,
     startTime: string,
     endTime: string,
-    description: string
+    description: string,
+    address: string
   };
 
   constructor() {
