@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {LoginPage} from '../login/login';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 /**
  * Generated class for the LoginScannerPage page.
@@ -15,8 +16,8 @@ import {LoginPage} from '../login/login';
   templateUrl: 'login-scanner.html',
 })
 export class LoginScannerPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  scannedCode = null;
+  constructor(public navCtrl: NavController, public navParams: NavParams,private barCodeScanner: BarcodeScanner) {
   }
 
   ionViewDidLoad() {
@@ -26,6 +27,12 @@ export class LoginScannerPage {
   goToLogin() {
     console.log('go to login !');
     this.navCtrl.push(LoginPage);
+  }
+
+  scanCode(){
+      this.barCodeScanner.scan().then(barcodeScanResult => {
+        this.scannedCode = barcodeScanResult.text;
+      })
   }
 
 

@@ -14,6 +14,7 @@
 
 
 <ion-content padding>
-<button ion-button>scan</button>
+<button ion-button (click)="scanCode()">scan</button>
 <button ion-button (click)="goToLogin()">m'inscrire</button>
+<p *ngIf="scannedCode">{{ scannedCode }}</p>
 </ion-content>
