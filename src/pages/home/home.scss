@@ -1,4 +1,14 @@
 page-home {
+
+  ion-content {
+    background-image: url("../assets/imgs/background1.svg");
+    background-size: 100vh 120vw;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+
   ion-header {
     background-color: white;
   }
@@ -15,8 +25,26 @@ page-home {
   .logo-text {
     width: 8em;
   }
-  .avatar {
+  .avatar-container {
+
     width: 8em;
+    height: 8em;
+    border-radius: 50em;
+    overflow: hidden;
+    .avatar {
+      width: 8em;
+      border-radius: 50em;
+    }
   }
+
+  ion-scroll {
+    height: 65vh;
+  }
+
+  ion-item {
+    background-color: transparent;
+  }
+
+
 
 }
