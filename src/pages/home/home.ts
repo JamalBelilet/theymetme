@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {App, Nav, NavController, NavParams} from 'ionic-angular';
 import {LoginPage} from '../login/login';
+import {ProfilePage} from '../profile/profile';
+import {LoginScannerPage} from '../login-scanner/login-scanner';
 
 @Component({
   selector: 'page-home',
@@ -49,7 +51,10 @@ export class HomePage {
     company: 'Be Small'
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private app: App) {
 
   }
 
@@ -62,4 +67,12 @@ export class HomePage {
     this.navCtrl.push(LoginPage);
   }
 
+  getProfileSettings() {
+    this.navCtrl.push(ProfilePage, {"user": this.user});
+  }
+  goBack() {
+
+    this.app.getRootNav().setRoot(LoginScannerPage, {isLoggedIn: true});
+    // this.appCtrl.getRootNav().setRoot(LoginPage);
+  }
 }
