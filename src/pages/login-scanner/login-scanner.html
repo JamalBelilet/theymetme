@@ -4,39 +4,47 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<!--<ion-header>-->
 
-  <ion-toolbar>
+  <!--<ion-toolbar>-->
+    <!--&lt;!&ndash;<ion-title>They Met Me</ion-title>&ndash;&gt;-->
+    <!--&lt;!&ndash;<ion-avatar end>&ndash;&gt;-->
+      <!--&lt;!&ndash;<img src="assets/imgs/avatar.png">&ndash;&gt;-->
+    <!--&lt;!&ndash;</ion-avatar>&ndash;&gt;-->
+
+
+
+    <!--<ion-buttons right>-->
+
+      <!--<button *ngIf="isLoggedIn" menuToggle ion-button icon-only color="royal" (click)="goToProfile()">-->
+        <!--<ion-avatar>-->
+
+          <!--<img src="assets/imgs/avatar.png">-->
+        <!--</ion-avatar>-->
+      <!--</button>-->
+    <!--</ion-buttons>-->
+
     <!--<ion-title>They Met Me</ion-title>-->
-    <!--<ion-avatar end>-->
-      <!--<img src="assets/imgs/avatar.png">-->
-    <!--</ion-avatar>-->
 
-
-
-    <ion-buttons right>
-
-      <button *ngIf="isLoggedIn" menuToggle ion-button icon-only color="royal" (click)="goToProfile()">
-        <ion-avatar>
-
-          <img src="assets/imgs/avatar.png">
-        </ion-avatar>
-      </button>
-    </ion-buttons>
-
-    <ion-title>They Met Me</ion-title>
-
-  </ion-toolbar>
+  <!--</ion-toolbar>-->
 
 
 
 
-</ion-header>
+<!--</ion-header>-->
 
 
 <ion-content padding>
-  <button ion-button (click)="scanCode()">scan</button>
-  <button *ngIf="!isLoggedIn" ion-button (click)="goToLogin()">log in</button>
-  <button *ngIf="isLoggedIn" ion-button (click)="goTologscanner()">log out</button>
+
+  <img class="logo" src="assets/imgs/logo.svg">
+  <img class="logo-text" src="assets/imgs/textlogo.svg">
+
+  <blockquote>
+    Core doesn’t safely facilitate any sun — but the lover is what grows.
+  </blockquote>
+
+  <button class="scanbtn" ion-button (click)="scanCode()" clear></button>
+  <button class="loginout" *ngIf="!isLoggedIn" ion-button (click)="goToLogin()" clear>connection</button>
+  <button class="loginout" *ngIf="isLoggedIn" ion-button (click)="goTologscanner()" clear>log out</button>
   <p *ngIf="scannedCode">{{ scannedCode }}</p>
 </ion-content>

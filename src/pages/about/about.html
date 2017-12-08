@@ -1,11 +1,31 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      notifications
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+
+
+  <ion-scroll scrollX >
+
+
+    <ion-card *ngFor="let notification of notifications" class="scroll-item" text-wrap>
+      <ion-card-header>
+        <img src="{{notification.img}}">
+      </ion-card-header>
+      <ion-card-content>
+        <h2>{{notification.title}}</h2>
+        <p>{{notification.content}}</p>
+        <p>{{notification.date}}</p>
+      </ion-card-content>
+    </ion-card>
+
+  </ion-scroll>
+
+
+
 
 </ion-content>

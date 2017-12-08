@@ -8,4 +8,58 @@ page-login-scanner {
     }
   }
 
+  ion-content {
+    background-image: url("../assets/imgs/background.svg");
+    background-size: 100vh 120vw;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    position: relative;
+
+    .logo {
+      position: absolute;
+      top: 6em;
+      left: 50%;
+      width: 5em;
+      margin-left: -2.5em;
+    }
+    .logo-text {
+      position: absolute;
+      top: 1em;
+      left: 1em;
+      width: 8em;
+    }
+
+    blockquote {
+      position: absolute;
+      bottom: 20em;
+    }
+
+    .loginout {
+      position: absolute;
+      bottom: 5em;
+      left: 50%;
+      margin-left: -4.4em;
+      background-image: url("../assets/imgs/button.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      color: white;
+      padding: 2em 2em;
+    }
+    .scanbtn {
+      position: absolute;
+      bottom: 10em;
+      left: 50%;
+      margin-left: -2.5em;
+      background-image: url("../assets/imgs/capture.svg");
+      background-repeat: no-repeat;
+      width: 5em;
+      height: 5em;
+      background-size: 5em;
+
+
+
+    }
+  }
+
 }
