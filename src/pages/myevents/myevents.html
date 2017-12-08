@@ -1,9 +1,14 @@
 <ion-header>
 
+
+
+
+
 </ion-header>
 
 <ion-content padding>
-  <div ion-fixed style="width: 100%;padding-top:1em">
+
+  <div ion-fixed style="width: 100%; padding-top:1em">
     <div style="background-color: transparent">
       <ion-item no-lines>
 
@@ -26,7 +31,7 @@
           <!--<p >{{user.company}}</p>-->
         </div>
         <ion-buttons item-right>
-          <button class="settings-btn" ion-button clear style="color: white;">
+          <button (click)="getProfileSettings()" class="settings-btn" ion-button clear style="color: white;">
             <img class="settings" src="assets/imgs/setting.svg"/>
 
             <!--<ion-icon name="more"></ion-icon>-->
@@ -36,24 +41,22 @@
 
     </div>
 
-    <ion-item text-wrap class="eventinfo">
-      <ion-thumbnail item-left>
-        <img class="event-thumbnail-image" [src]="event.image">
-      </ion-thumbnail>
-      <h2>{{event.name}}</h2>
-      <!--<p>{{event.startTime}}</p>-->
-      <!--<p>{{event.endTime}}</p>-->
-      <p>{{event.description}}</p>
+    <ion-item style="background: transparent; margin-top: -1.5em; margin-bottom: .5em;">
+      <ion-buttons item-end>
+        <button (click)="addEvent()" class="add-button-icon-container" ion-button clear>
+          <img class="add-button-icon" src="assets/imgs/add.svg">
+        </button>
+      </ion-buttons>
+      <p style="color: white; font-size: 1.6em;">Mes events</p>
     </ion-item>
 
-    <ion-scroll scrollY style="margin-top: -1em;" >
-      <ion-list >
-        <contacts-holder *ngFor="let contact of event.contacts" [contact]="contact"></contacts-holder>
-      </ion-list>
+
+    <ion-scroll scrollY style="margin-top: -1em; margin-bottom:0em;" >
+      <events-holder *ngFor="let event of events" [event]="event"  [navPush]="eventDetail" [navParams]="event"></events-holder>
     </ion-scroll>
   </div>
 
 
 
-
+  <!--<button ion-button (click)="goToLogin()">&gt;</button>-->
 </ion-content>

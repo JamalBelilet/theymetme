@@ -29,7 +29,7 @@ export class LoginScannerPage {
 
   goToLogin() {
     console.log('go to login !');
-    this.navCtrl.push(AddeventpagePage,{event:'qr-code'});
+    this.navCtrl.push(LoginPage);
   }
 
   goTologscanner() {

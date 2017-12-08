@@ -1,12 +1,21 @@
-page-home {
+page-myevents {
 
   ion-content {
-    background-image: url("../assets/imgs/background2.svg");
+    background-image: url("../assets/imgs/goldBackground.svg");
     background-size: 140vw;
     background-position:  center 14vh;
     background-repeat: no-repeat;
     position: relative;
     padding-top: 2em;
+  }
+
+  .add-button-icon-container {
+    font-size: 1em;
+    padding: 0;
+    width: 3em;
+    height: 3em;
+    background-color: white;
+    border-radius: 50em;
   }
 
   .persona-info {
@@ -71,14 +80,11 @@ page-home {
   ion-scroll {
 
     margin: -1em;
-    height: 60vh;
+    height: 52vh;
     padding: 0;
   }
 
   ion-item {
     background-color: transparent;
   }
-
-
-
 }

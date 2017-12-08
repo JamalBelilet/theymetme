@@ -21,6 +21,9 @@ import {ProfilePage} from '../pages/profile/profile';
 import { ContactMoreComponent } from '../components/contact-more/contact-more';
 import {EventDetailPage} from '../pages/event-detail/event-detail';
 import {AddeventpagePage} from '../pages/addeventpage/addeventpage';
+import {MyeventsPage} from '../pages/myevents/myevents';
+import {DatePicker} from '@ionic-native/date-picker';
+
 
 @NgModule({
 
@@ -38,7 +41,8 @@ import {AddeventpagePage} from '../pages/addeventpage/addeventpage';
     EventsHolderComponent,
     ContactsHolderComponent,
     ContactMoreComponent,
-    AddeventpagePage
+    AddeventpagePage,
+    MyeventsPage
   ],
   imports: [
     BrowserModule,
@@ -59,12 +63,14 @@ import {AddeventpagePage} from '../pages/addeventpage/addeventpage';
     ContactMoreComponent,
     ProfilePage,
     EventDetailPage,
-    AddeventpagePage
+    AddeventpagePage,
+    MyeventsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     BarcodeScanner,
+    DatePicker,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
