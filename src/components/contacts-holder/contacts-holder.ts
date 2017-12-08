@@ -16,7 +16,7 @@ export class ContactsHolderComponent {
     username: string,
     company: string,
     phone: string,
-    address: string
+    email: string
   };
 
   constructor() {
