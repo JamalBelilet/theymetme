@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {LoginPage} from '../login/login';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import {TabsPage} from '../tabs/tabs';
-import {AddeventpagePage} from '../addeventpage/addeventpage';
+
 /**
  * Generated class for the LoginScannerPage page.
  *

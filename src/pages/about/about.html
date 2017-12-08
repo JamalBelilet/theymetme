@@ -36,7 +36,7 @@
     </div>
 
     <ion-slides style="margin-top: -1em;">
-      <ion-slide *ngFor="let notification of notifications">
+      <ion-slide *ngFor="let notification of notifications | async">
         <ion-card  class="scroll-item" text-wrap>
           <ion-card-header>
             <img src="{{notification.img}}">
