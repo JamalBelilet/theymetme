@@ -21,7 +21,19 @@ import {ProfilePage} from '../pages/profile/profile';
 import { ContactMoreComponent } from '../components/contact-more/contact-more';
 import {EventDetailPage} from '../pages/event-detail/event-detail';
 import {AddeventpagePage} from '../pages/addeventpage/addeventpage';
+import { FirebaseProvider } from '../providers/firebase/firebase';
+import { HttpModule } from '@angular/http';
+import { AngularFireDatabaseModule } from 'angularfire2/database'
+import { AngularFireModule } from 'angularfire2';
 
+const config = {
+  apiKey: "AIzaSyB7NZ4odUf_vBalWkW5tHeWNqwGOR7I958",
+  authDomain: "theymetme-be7fa.firebaseapp.com",
+  databaseURL: "https://theymetme-be7fa.firebaseio.com",
+  projectId: "theymetme-be7fa",
+  storageBucket: "theymetme-be7fa.appspot.com",
+  messagingSenderId: "44686374750"
+};
 @NgModule({
 
   declarations: [
@@ -42,7 +54,10 @@ import {AddeventpagePage} from '../pages/addeventpage/addeventpage';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
+    AngularFireDatabaseModule,   
+    AngularFireModule.initializeApp(config), 
     NgxQRCodeModule,
 
   ],
@@ -65,7 +80,8 @@ import {AddeventpagePage} from '../pages/addeventpage/addeventpage';
     StatusBar,
     SplashScreen,
     BarcodeScanner,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FirebaseProvider
   ]
 })
 export class AppModule {}

@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {LoginPage} from '../login/login';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import {TabsPage} from '../tabs/tabs';
-import {AddeventpagePage} from '../addeventpage/addeventpage';
+
 /**
  * Generated class for the LoginScannerPage page.
  *
@@ -29,7 +29,7 @@ export class LoginScannerPage {
 
   goToLogin() {
     console.log('go to login !');
-    this.navCtrl.push(AddeventpagePage,{event:'qr-code'});
+    this.navCtrl.push(LoginPage);
   }
 
   goTologscanner() {

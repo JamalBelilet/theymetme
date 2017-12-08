@@ -5,15 +5,13 @@ page-about {
     box-shadow: 0 0 3px rgba(0,0,0,.4);
     padding: 0;
     img {
-
       width: 105vw;
       min-width: 105vw;
       max-width: 105vw;
+      max-height: 38vh;
       margin-left: -10vw;
       margin-top: -10vw;
-
-
-
+      object-fit: cover;
     }
   }
   ion-scroll[scrollX] {

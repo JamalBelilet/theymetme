@@ -43,7 +43,7 @@
 
 
     <ion-scroll scrollY style="margin-top: -1em;" >
-      <events-holder *ngFor="let event of events" [event]="event"  [navPush]="eventDetail" [navParams]="event"></events-holder>
+      <events-holder *ngFor="let event of (events | async)" [event]="event"  [navPush]="eventDetail" [navParams]="event"></events-holder>
     </ion-scroll>
   </div>
 
