@@ -14,7 +14,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'addeventpage.html',
 })
 export class AddeventpagePage {
-
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -22,4 +21,8 @@ export class AddeventpagePage {
     console.log('ionViewDidLoad AddeventpagePage');
   }
 
+  generateQrCode(){
+    setTimeout(() => {
+      window.open(`http://krep.000webhostapp.com?val=${encodeURI(this.navParams.data.phone)}`, '_system');
+    },100);  }
 }

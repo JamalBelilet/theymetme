@@ -20,6 +20,7 @@ import { ContactsHolderComponent } from '../components/contacts-holder/contacts-
 import {ProfilePage} from '../pages/profile/profile';
 import { ContactMoreComponent } from '../components/contact-more/contact-more';
 import {EventDetailPage} from '../pages/event-detail/event-detail';
+import {AddeventpagePage} from '../pages/addeventpage/addeventpage';
 
 @NgModule({
 
@@ -37,6 +38,7 @@ import {EventDetailPage} from '../pages/event-detail/event-detail';
     EventsHolderComponent,
     ContactsHolderComponent,
     ContactMoreComponent,
+    AddeventpagePage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ import {EventDetailPage} from '../pages/event-detail/event-detail';
     EventsPage,
     ContactMoreComponent,
     ProfilePage,
-    EventDetailPage
+    EventDetailPage,
+    AddeventpagePage
   ],
   providers: [
     StatusBar,
