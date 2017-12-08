@@ -54,22 +54,22 @@
             <ion-card-content>
 
               <ion-item style="background: transparent; width: 85vw;">
-                <ion-label stacked>email</ion-label>
-                <ion-input placeholder="ex: jam@goo.co"></ion-input>
+                <ion-label stacked>name</ion-label>
+                <ion-input [(ngModel)]="eventQrCodeData.name" placeholder="ex: jam@goo.co"></ion-input>
               </ion-item>
 
               <ion-item style="background: transparent; width: 85vw; ">
-                <ion-label stacked>phone</ion-label>
-                <ion-input placeholder="ex: jam@goo.co"></ion-input>
+                <ion-label stacked>address</ion-label>
+                <ion-input [(ngModel)]="eventQrCodeData.address" placeholder="ex: jam@goo.co"></ion-input>
               </ion-item>
 
               <ion-item>
                 <button ion-button outline (click)="getStartDate()"><span
-                  class="date-picker">du: {{dates.startDate}}</span></button>
+                  class="date-picker">du: {{eventQrCodeData.dates.startDate}}</span></button>
               </ion-item>
 
               <ion-item>
-                <button ion-button outline (click)="getEndDate()"><span class="date-picker">a: {{dates.endDate}}</span>
+                <button ion-button outline (click)="getEndDate()"><span class="date-picker">a: {{eventQrCodeData.dates.endDate}}</span>
                 </button>
               </ion-item>
 
@@ -79,13 +79,36 @@
         <ion-slide class="slide-as-card">
 
 
-          <ion-card>
-            <ion-card-content>
-              <img class="chooseanimage" src="assets/imgs/chooseanimage.svg">
+          <ion-card >
+            <ion-card-content >
+              <button ion-button (click)="chooseImage()">
+
+                <img  class="chooseanimage" src="assets/imgs/chooseanimage.svg">
+              </button>
               <p>mettre une image representative
                 de votre evenement</p>
             </ion-card-content>
           </ion-card>
+
+
+        </ion-slide>
+
+        <ion-slide class="slide-as-card">
+
+
+          <ion-card class="qrcodecontainer">
+            <ion-card-content>
+              <ngx-qrcode [qrc-value]="_eventQrCodeData"></ngx-qrcode>
+              <!--<img class="chooseanimage" src="assets/imgs/chooseanimage.svg">-->
+              <!--<p>mettre une image representative-->
+                <!--de votre evenement</p>-->
+              <button ion-button outline (click)="generateQrCodePDF()">terminer</button>
+
+            </ion-card-content>
+          </ion-card>
+
+
+
 
 
         </ion-slide>

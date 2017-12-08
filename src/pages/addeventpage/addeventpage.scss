@@ -9,12 +9,29 @@ page-addeventpage {
     padding-top: 2em;
   }
 
-  .chooseanimage {
+  .chooseanimage, ngx-qrcode {
     width: 12em;
     margin: 0 auto;
     height: 12em;
 
 
+  }
+  .qrcodecontainer {
+
+    button {
+      z-index: 999;
+      padding: 1em 2em;
+      color: black;
+      border-color: black;
+
+
+    }
+  }
+
+  ngx-qrcode {
+    //width: 95vw;
+    height: auto;
+    padding: 2em;
   }
 
   .main-title {

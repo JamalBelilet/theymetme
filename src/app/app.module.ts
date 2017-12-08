@@ -23,6 +23,7 @@ import {EventDetailPage} from '../pages/event-detail/event-detail';
 import {AddeventpagePage} from '../pages/addeventpage/addeventpage';
 import {MyeventsPage} from '../pages/myevents/myevents';
 import {DatePicker} from '@ionic-native/date-picker';
+import {ImagePicker} from '@ionic-native/image-picker';
 
 
 @NgModule({
@@ -71,6 +72,7 @@ import {DatePicker} from '@ionic-native/date-picker';
     SplashScreen,
     BarcodeScanner,
     DatePicker,
+    ImagePicker,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
