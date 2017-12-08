@@ -6,15 +6,37 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-toolbar>
+    <!--<ion-title>They Met Me</ion-title>-->
+    <!--<ion-avatar end>-->
+      <!--<img src="assets/imgs/avatar.png">-->
+    <!--</ion-avatar>-->
+
+
+
+    <ion-buttons right>
+
+      <button *ngIf="isLoggedIn" menuToggle ion-button icon-only color="royal" (click)="goToProfile()">
+        <ion-avatar>
+
+          <img src="assets/imgs/avatar.png">
+        </ion-avatar>
+      </button>
+    </ion-buttons>
+
     <ion-title>They Met Me</ion-title>
-  </ion-navbar>
+
+  </ion-toolbar>
+
+
+
 
 </ion-header>
 
 
 <ion-content padding>
-<button ion-button (click)="scanCode()">scan</button>
-<button ion-button (click)="goToLogin()">m'inscrire</button>
-<p *ngIf="scannedCode">{{ scannedCode }}</p>
+  <button ion-button (click)="scanCode()">scan</button>
+  <button *ngIf="!isLoggedIn" ion-button (click)="goToLogin()">log in</button>
+  <button *ngIf="isLoggedIn" ion-button (click)="goTologscanner()">log out</button>
+  <p *ngIf="scannedCode">{{ scannedCode }}</p>
 </ion-content>

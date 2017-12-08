@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {LoginPage} from '../login/login';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import {TabsPage} from '../tabs/tabs';
 
 /**
  * Generated class for the LoginScannerPage page.
@@ -16,8 +17,10 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
   templateUrl: 'login-scanner.html',
 })
 export class LoginScannerPage {
+  isLoggedIn: any;
   scannedCode = null;
   constructor(public navCtrl: NavController, public navParams: NavParams,private barCodeScanner: BarcodeScanner) {
+    this.isLoggedIn = navParams.get('isLoggedIn') || false;
   }
 
   ionViewDidLoad() {
@@ -29,11 +32,22 @@ export class LoginScannerPage {
     this.navCtrl.push(LoginPage);
   }
 
+  goTologscanner() {
+    this.navCtrl.push(LoginScannerPage, {isLoggedIn: false});
+  }
+
   scanCode(){
       this.barCodeScanner.scan().then(barcodeScanResult => {
         this.scannedCode = barcodeScanResult.text;
       })
   }
+
+  goToProfile() {
+    this.navCtrl.setRoot(TabsPage);
+
+  }
+
+
 
 
 }

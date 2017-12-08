@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {EventsPage} from '../events/events';
+import {TabsPage} from '../tabs/tabs';
+import {LoginScannerPage} from '../login-scanner/login-scanner';
 
 /**
  * Generated class for the LoginPage page.
@@ -33,7 +35,7 @@ export class LoginPage {
 
 
   login() {
-    this.navCtrl.push(EventsPage);
+    this.navCtrl.setRoot(LoginScannerPage, {isLoggedIn: true});
 
   }
   getSignUpPage() {}

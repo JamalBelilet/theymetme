@@ -15,8 +15,14 @@
 
 <ion-content padding>
 
-  <events-holder *ngFor="let event of events" [event]="event"></events-holder>
 
+  <ion-list>
+
+    <ion-item  *ngFor="let event of events">
+      <events-holder  [event]="event"></events-holder>
+
+    </ion-item>
+  </ion-list>
 
   <button ion-button (click)="goToLogin()">&gt;</button>
 
