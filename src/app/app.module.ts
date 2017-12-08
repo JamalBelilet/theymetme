@@ -18,6 +18,7 @@ import { NgxQRCodeModule} from 'ngx-qrcode2';
 import { BarcodeScanner} from '@ionic-native/barcode-scanner';
 import { ContactsHolderComponent } from '../components/contacts-holder/contacts-holder';
 import {ProfilePage} from '../pages/profile/profile';
+import { ContactMoreComponent } from '../components/contact-more/contact-more';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import {ProfilePage} from '../pages/profile/profile';
     ProfilePage,
     EventsHolderComponent,
     ContactsHolderComponent,
+    ContactMoreComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +51,7 @@ import {ProfilePage} from '../pages/profile/profile';
     LoginScannerPage,
     LoginPage,
     EventsPage,
+    ContactMoreComponent,
     ProfilePage
   ],
   providers: [

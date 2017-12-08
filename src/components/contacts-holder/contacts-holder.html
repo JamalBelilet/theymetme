@@ -1,9 +1,24 @@
 <!-- Generated template for the ContactsHolderComponent component -->
+        
+<ion-item >
+  <ion-avatar item-start>
+    <img src="../../assets/imgs/DSC_0507.JPG">
+  </ion-avatar>
+  <h4>{{contact.username}}</h4>
+  <h4>{{contact.company}}</h4>
+  <button ion-button icon-only item-end (click)="presentPopover($event)">
+    <ion-icon name="more"></ion-icon>
+  </button>
+
+</ion-item>
+
+
+<!-- 
 <ion-card class="holder">
 
-  {{contact.username}}
+  
   <ion-card-content>
-    <p>{{contact.company}}</p>
+    <p></p>
     <ion-item>
         {{contact.phone}}
       <button (click)="callContact()" ion-button clear icon-only item-end icon-left>
@@ -17,4 +32,4 @@
       </button>
     </ion-item>
   </ion-card-content>
-</ion-card>
+</ion-card> -->
