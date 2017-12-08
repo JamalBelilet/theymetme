@@ -8,13 +8,13 @@
 
 <ion-content padding>
 
-  <div ion-fixed style="width: 100%;">
+  <div ion-fixed style="width: 100%; padding-top:1em">
     <div style="background-color: transparent">
       <ion-item no-lines>
 
         <img class="logo-text" src="assets/imgs/logoplustext.svg">
         <ion-buttons item-right>
-          <button menuToggle ion-button icon-only color="royal" clear>
+          <button (click)="goBack()" menuToggle ion-button icon-only color="royal" clear>
             <img class="go-back" src="assets/imgs/goback.svg">
           </button>
         </ion-buttons>
@@ -31,7 +31,7 @@
           <!--<p >{{user.company}}</p>-->
         </div>
         <ion-buttons item-right>
-          <button class="settings-btn" ion-button clear style="color: white;">
+          <button (click)="getProfileSettings()" class="settings-btn" ion-button clear style="color: white;">
             <img class="settings" src="assets/imgs/setting.svg"/>
 
             <!--<ion-icon name="more"></ion-icon>-->

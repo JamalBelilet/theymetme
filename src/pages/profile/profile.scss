@@ -1,51 +1,44 @@
-page-about {
-
-  .scroll-item {
-    border-radius: 1em;
-    box-shadow: 0 0 3px rgba(0,0,0,.4);
-    padding: 0;
-    img {
-
-      width: 105vw;
-      min-width: 105vw;
-      max-width: 105vw;
-      margin-left: -10vw;
-      margin-top: -10vw;
+page-profile {
 
 
-
-    }
+  ion-label {
+    color: white;
   }
-  ion-scroll[scrollX] {
-    white-space: nowrap;
-    height: 100%;
-
-    .scroll-item {
-      margin-top: .5em;
-      margin-bottom: 0;
-      display: inline-block;
-      width: 80vw;
-
-      border-radius: 6em;
-      box-shadow: 0 0 6px black;
-
-      img {
-        margin: 0;
-        padding: 0;
-      }
-
-    }
-
-
-  }
-
   ion-content {
     background-image: url("../assets/imgs/background2.svg");
     background-size: 140vw;
-    background-position:  center 14vh;
+    background-position:  center 12vh;
     background-repeat: no-repeat;
     position: relative;
     padding-top: 2em;
+  }
+
+  .souvegarder {
+    background-image: url("../assets/imgs/buttonblanc.svg");
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+  }
+  .inputs {
+    position: absolute;
+    bottom: 12em;
+    margin: 1em 13%;
+
+    z-index: 999;
+    font-size: 1.2em;
+    width: 70%;
+    background-color: transparent;
+
+    input {
+      //background-color: white;
+
+      padding: .8em;
+      border-radius: .5em;
+      margin: .6em auto;
+      z-index: 9999;
+
+    }
   }
 
   .persona-info {
@@ -117,7 +110,6 @@ page-about {
   ion-item {
     background-color: transparent;
   }
-
 
 
 

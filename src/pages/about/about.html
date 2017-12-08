@@ -1,31 +1,66 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      notifications
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+
 
 <ion-content padding>
 
+  <div ion-fixed style="width: 100%; padding-top:1em">
+    <div style="background-color: transparent">
+      <ion-item no-lines>
 
-  <ion-scroll scrollX >
+        <img class="logo-text" src="assets/imgs/logoplustext.svg">
+        <ion-buttons item-right>
+          <button (click)="goBack()" menuToggle ion-button icon-only color="royal" clear>
+            <img class="go-back" src="assets/imgs/goback.svg">
+          </button>
+        </ion-buttons>
+      </ion-item>
+
+      <ion-item padding  no-lines style="background: transparent; position: relative">
+
+        <div class="avatar-container" item-left>
+          <img class="avatar" src="assets/imgs/DSC_0507.JPG">
+
+        </div >
+        <div class="persona-info">
+          <h2 >{{user.name}}</h2>
+          <!--<p >{{user.company}}</p>-->
+        </div>
+        <ion-buttons item-right>
+          <button (click)="getProfileSettings()" class="settings-btn" ion-button clear style="color: white;">
+            <img class="settings" src="assets/imgs/setting.svg"/>
+
+            <!--<ion-icon name="more"></ion-icon>-->
+          </button>
+        </ion-buttons>
+      </ion-item>
+
+    </div>
+
+    <ion-slides style="margin-top: -1em;">
+      <ion-slide *ngFor="let notification of notifications">
+        <ion-card  class="scroll-item" text-wrap>
+          <ion-card-header>
+            <img src="{{notification.img}}">
+          </ion-card-header>
+          <ion-card-content>
+            <h2>{{notification.title}}</h2>
+            <p>{{notification.content}}</p>
+            <p>{{notification.date}}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+    <!--<ion-scroll scrollY style="margin-top: -1em;" >-->
+      <!---->
+    <!--</ion-scroll>-->
+
+  </div>
 
 
-    <ion-card *ngFor="let notification of notifications" class="scroll-item" text-wrap>
-      <ion-card-header>
-        <img src="{{notification.img}}">
-      </ion-card-header>
-      <ion-card-content>
-        <h2>{{notification.title}}</h2>
-        <p>{{notification.content}}</p>
-        <p>{{notification.date}}</p>
-      </ion-card-content>
-    </ion-card>
-
-  </ion-scroll>
 
 
 
 
+
+  <!--<button ion-button (click)="goToLogin()">&gt;</button>-->
 </ion-content>
+
