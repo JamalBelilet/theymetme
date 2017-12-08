@@ -1,17 +1,18 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Contact
-    </ion-title>
-  </ion-navbar>
+  <ion-item no-lines>
+    <ion-buttons item-right>
+
+      <button menuToggle ion-button icon-only color="royal" clear>
+        <ion-icon name="qr-scanner"></ion-icon>
+      </button>
+
+    </ion-buttons>
+
+    <ion-title item-left>They Met Me</ion-title>
+  </ion-item>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+<ion-content padding>
+  <contacts-holder *ngFor="let contact of contacts" [contact]="contact"></contacts-holder>
+  
 </ion-content>
