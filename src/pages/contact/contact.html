@@ -1,9 +1,9 @@
 <ion-header>
- 
+
 </ion-header>
 
 <ion-content padding>
-  <div ion-fixed style="width: 100%;">
+  <div ion-fixed style="width: 100%;padding-top:1em">
     <div style="background-color: transparent">
       <ion-item no-lines>
 
@@ -36,7 +36,7 @@
 
     </div>
 
-    
+
     <ion-scroll scrollY style="margin-top: -1em;" >
       <ion-list >
         <contacts-holder *ngFor="let contact of contacts" [contact]="contact"></contacts-holder>
@@ -44,7 +44,7 @@
     </ion-scroll>
   </div>
 
- 
- 
-  
+
+
+
 </ion-content>

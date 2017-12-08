@@ -19,8 +19,10 @@ import { BarcodeScanner} from '@ionic-native/barcode-scanner';
 import { ContactsHolderComponent } from '../components/contacts-holder/contacts-holder';
 import {ProfilePage} from '../pages/profile/profile';
 import { ContactMoreComponent } from '../components/contact-more/contact-more';
+import {EventDetailPage} from '../pages/event-detail/event-detail';
 
 @NgModule({
+
   declarations: [
     MyApp,
     AboutPage,
@@ -31,6 +33,7 @@ import { ContactMoreComponent } from '../components/contact-more/contact-more';
     LoginPage,
     EventsPage,
     ProfilePage,
+    EventDetailPage,
     EventsHolderComponent,
     ContactsHolderComponent,
     ContactMoreComponent,
@@ -52,7 +55,8 @@ import { ContactMoreComponent } from '../components/contact-more/contact-more';
     LoginPage,
     EventsPage,
     ContactMoreComponent,
-    ProfilePage
+    ProfilePage,
+    EventDetailPage
   ],
   providers: [
     StatusBar,
