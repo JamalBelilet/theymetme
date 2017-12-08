@@ -1,13 +1,30 @@
 page-home {
 
   ion-content {
-    background-image: url("../assets/imgs/background1.svg");
-    background-size: 100vh 120vw;
-    background-position: bottom center;
+    background-image: url("../assets/imgs/background2.svg");
+    background-size: 90vh 140vw;
+    background-position:  center 12vh;
     background-repeat: no-repeat;
     position: relative;
   }
 
+  .persona-info {
+    position: absolute;
+    bottom: 2em;
+    z-index: 22;
+
+    h2, p {
+      color: white;
+    }
+    p {
+      color: #bebebe;
+    }
+  }
+
+  .scroll-content {
+    padding: 0;
+    margin: 0;
+  }
 
   ion-header {
     background-color: white;
@@ -25,20 +42,32 @@ page-home {
   .logo-text {
     width: 8em;
   }
+  .settings {
+    width: 1.4em;
+    height: 1.4em;
+
+    margin-top: -1.8em;
+
+
+  }
   .avatar-container {
 
-    width: 8em;
-    height: 8em;
+    $imgsize: 6em;
+    width: $imgsize;
+    height: $imgsize;
     border-radius: 50em;
     overflow: hidden;
     .avatar {
-      width: 8em;
+      width: $imgsize;
       border-radius: 50em;
     }
   }
 
   ion-scroll {
+
+    margin: -1em;
     height: 65vh;
+    padding: 0;
   }
 
   ion-item {

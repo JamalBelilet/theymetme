@@ -9,18 +9,35 @@ import {LoginPage} from '../login/login';
 export class HomePage {
   events: any[]  = [
     {
+      image: "assets/imgs/algeria20.png",
       name: 'Capio clemens gluten est.',
       startTime: '02-08-2016',
       endTime: '03-12-2017',
       description: 'Issue is not imminent in earth, the heavens of mind, or wonderland, but everywhere.'
     },
     {
+      image: "assets/imgs/algeria20.png",
+      name: 'Capio clemens gluten est.',
+      startTime: '02-08-2016',
+      endTime: '03-12-2017',
+      description: 'Issue is not imminent in earth, the heavens of mind, or wonderland, but everywhere.'
+    },
+    {
+      image: "assets/imgs/algeria20.png",
+      name: 'Capio clemens gluten est.',
+      startTime: '02-08-2016',
+      endTime: '03-12-2017',
+      description: 'Issue is not imminent in earth, the heavens of mind, or wonderland, but everywhere.'
+    },
+    {
+      image: "assets/imgs/evnetlogotest.jpg",
       name: 'The karma witness.',
       startTime: '09-08-2016',
       endTime: '04-12-2017',
       description: 'Leek can be brushed with sour asparagus, also try varnishing the paste with coffee.'
     },
     {
+      image: "assets/imgs/algeria20.png",
       name: 'The cow witness. .',
       startTime: '09-08-2016',
       endTime: '04-12-2017',

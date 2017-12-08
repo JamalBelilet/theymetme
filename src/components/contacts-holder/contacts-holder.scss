@@ -1,5 +1,22 @@
 contacts-holder {
-    .holder {
-        margin: 1em 1em 5em 1em;
-      }
+  .holder {
+    margin: 1em 1em 5em 1em;
+
+  }
+}
+h3,p {
+
+
+  line-height: 1.3em;
+  padding: 0;
+  margin: 0;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+p {
+  color: #555
 }

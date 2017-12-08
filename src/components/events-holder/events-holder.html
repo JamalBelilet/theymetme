@@ -1,9 +1,19 @@
 <!-- Generated template for the EventsHolderComponent component -->
 <div class="holder">
-  <h2>
-    {{event.name}}
-  </h2>
-  <p>du {{event.startTime}} a {{event.endTime}}</p>
-  <h2>address: {{event.address}}</h2>
-  <p>{{event.description}}</p>
+
+  <ion-item no-lines>
+    <ion-thumbnail item-left>
+
+      <img class="event-image" src="{{event.image}}">
+    </ion-thumbnail>
+
+    <h3>
+      {{event.name}}
+    </h3>
+    <!--<p>{{event.description}}</p>-->
+    <p>address: {{event.address}}</p>
+    <p>du {{event.startTime}} a {{event.endTime}}</p>
+  </ion-item>
+
+
 </div>
