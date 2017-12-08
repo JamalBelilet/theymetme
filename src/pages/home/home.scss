@@ -1,11 +1,13 @@
 page-home {
 
+
   ion-content {
     background-image: url("../assets/imgs/background2.svg");
-    background-size: 90vh 140vw;
+    background-size: 140vw;
     background-position:  center 12vh;
     background-repeat: no-repeat;
     position: relative;
+    padding-top: 2em;
   }
 
   .persona-info {
@@ -42,11 +44,15 @@ page-home {
   .logo-text {
     width: 8em;
   }
+  .settings-btn {
+    margin: -2.8em -1em 0 -1em;
+  }
   .settings {
-    width: 1.4em;
-    height: 1.4em;
+    width: 1.6em;
+    height: 1.6em;
+    padding: 0;
 
-    margin-top: -1.8em;
+    //margin-top: -1.8em;
 
 
   }
