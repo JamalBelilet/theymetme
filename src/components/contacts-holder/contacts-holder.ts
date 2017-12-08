@@ -1,4 +1,7 @@
 import { Component,Input } from '@angular/core';
+import { PopoverController } from 'ionic-angular/components/popover/popover-controller';
+import { ViewController } from 'ionic-angular';
+import { ContactMoreComponent } from '../contact-more/contact-more';
 
 /**
  * Generated class for the ContactsHolderComponent component.
@@ -19,7 +22,8 @@ export class ContactsHolderComponent {
     email: string
   };
 
-  constructor() {
+  
+  constructor(private popoverCtrl:PopoverController) {
   
   }
 
@@ -35,6 +39,11 @@ export class ContactsHolderComponent {
     },100);
   }
 
-
-
+  presentPopover(myEvent){
+    let popover = this.popoverCtrl.create(ContactMoreComponent);
+    popover.present({
+      ev: myEvent
+    });
+  }
 }
+
