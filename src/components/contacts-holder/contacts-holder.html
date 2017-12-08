@@ -4,7 +4,17 @@
   {{contact.username}}
   <ion-card-content>
     <p>{{contact.company}}</p>
-    <p>{{contact.phone}}</p>
-    <p>{{contact.address}}</p>
+    <ion-item>
+        {{contact.phone}}
+      <button ion-button clear icon-only item-end icon-left>
+        <ion-icon name="call"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>
+        {{contact.email}}
+      <button ion-button clear icon-only item-end icon-left>
+        <ion-icon name="mail"></ion-icon>
+      </button>
+    </ion-item>
   </ion-card-content>
 </ion-card>
