@@ -19,7 +19,7 @@ export class ContactsHolderComponent {
     email: string
   };
 
-  constructor(private callNumber:CallNumber) {
+  constructor() {
   
   }
 
