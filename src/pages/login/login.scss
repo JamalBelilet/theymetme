@@ -1,3 +1,96 @@
 page-login {
 
+  ion-avatar {
+    //width: .6em;
+    img {
+      width: 1.3em;
+    }
+  }
+
+  ion-content {
+    background-image: url("../assets/imgs/background1.svg");
+    background-size: 100vh 120vw;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    position: relative;
+
+    .logo {
+      position: absolute;
+      top: 6em;
+      left: 50%;
+      width: 5em;
+      margin-left: -2.5em;
+    }
+    .logo-text {
+      position: absolute;
+      top: 1em;
+      left: 1em;
+      width: 8em;
+    }
+
+    blockquote {
+      position: absolute;
+      bottom: 20em;
+    }
+
+
+    .logo-text {
+      position: absolute;
+      top: 1em;
+      left: 1em;
+      width: 8em;
+    }
+    .loginout {
+      position: absolute;
+      bottom: 3.5em;
+      left: 50%;
+      margin-left: -4.4em;
+      background-image: url("../assets/imgs/buttonblanc.svg");
+
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      color: black;
+      padding: 2em 2em;
+    }
+    .scanbtn {
+      position: absolute;
+      bottom: 4.2em;
+      left: 50%;
+      margin-left: -2.5em;
+      font-size: 1.8em;
+      color: white;
+      width: 5em;
+      height: 5em;
+
+
+
+    }
+    .inputs {
+      position: absolute;
+      bottom: 12em;
+      margin: 1em 13%;
+
+      z-index: 999;
+      font-size: 1.2em;
+      width: 70%;
+
+      input {
+        background-color: white;
+
+        padding: .8em;
+        border-radius: .5em;
+        margin: .6em auto;
+      }
+    }
+    .connection-text {
+      font-size: 2.5em;
+      font-weight: lighter;
+      text-align: center;
+      position: absolute;
+      top: 2em;
+      left: 50%;
+      margin-left: -2.1em;
+    }
+  }
 }

@@ -22,6 +22,16 @@ page-login-scanner {
       width: 5em;
       margin-left: -2.5em;
     }
+    .profile-avatar {
+      position: absolute;
+      top: .5em;
+      right: .5em;
+      width: 3em;
+
+      img {
+        width: 2em;
+      }
+    }
     .logo-text {
       position: absolute;
       top: 1em;
@@ -36,7 +46,7 @@ page-login-scanner {
 
     .loginout {
       position: absolute;
-      bottom: 5em;
+      bottom: 3em;
       left: 50%;
       margin-left: -4.4em;
       background-image: url("../assets/imgs/button.svg");
@@ -45,6 +55,15 @@ page-login-scanner {
       background-position: center center;
       color: white;
       padding: 2em 2em;
+
+      &.deconnection {
+        bottom: 3em;
+
+        margin-left: -5.2em;
+        color: #d82c7c;
+        background-image: url("../assets/imgs/buttonoutline.svg");
+
+      }
     }
     .scanbtn {
       position: absolute;

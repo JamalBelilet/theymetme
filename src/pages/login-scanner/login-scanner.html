@@ -36,6 +36,13 @@
 
 <ion-content padding>
 
+  <button class="profile-avatar" clear *ngIf="isLoggedIn" menuToggle ion-button icon-only color="royal" (click)="goToProfile()">
+    <ion-avatar>
+
+      <img src="assets/imgs/user.svg">
+    </ion-avatar>
+  </button>
+
   <img class="logo" src="assets/imgs/logo.svg">
   <img class="logo-text" src="assets/imgs/textlogo.svg">
 
@@ -45,6 +52,6 @@
 
   <button class="scanbtn" ion-button (click)="scanCode()" clear></button>
   <button class="loginout" *ngIf="!isLoggedIn" ion-button (click)="goToLogin()" clear>connection</button>
-  <button class="loginout" *ngIf="isLoggedIn" ion-button (click)="goTologscanner()" clear>log out</button>
+  <button class="loginout deconnection" *ngIf="isLoggedIn" ion-button (click)="goTologscanner()" clear>deconnection</button>
   <p *ngIf="scannedCode">{{ scannedCode }}</p>
 </ion-content>
