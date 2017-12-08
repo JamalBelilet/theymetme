@@ -11,7 +11,7 @@ import { ViewController, NavParams } from 'ionic-angular';
   template: `
   <ion-list>
     <button ion-item full (click)="callContact()"><ion-icon  name="call" clear >{{navParams.data.phone}}</ion-icon></button>
-    <button ion-item full (click)="SendMail()"><ion-icon  name="mail" clear >{{navParams.data.email}}</ion-icon></button>
+    <button ion-item full (click)="sendMail()"><ion-icon  name="mail" clear >{{navParams.data.email}}</ion-icon></button>
   </ion-list>
 `
 })
@@ -22,14 +22,14 @@ export class ContactMoreComponent {
   callContact(){
     this.close();
     setTimeout(() => {
-      window.open(`tel:${this.navParams.data.contact.phone}`, '_system');
+      window.open(`tel:${this.navParams.data.phone}`, '_system');
     },100);
   }
 
   sendMail(){
     this.close();
     setTimeout(() => {
-      window.open(`mailto:${this.navParams.data.contact.email}`, '_system');
+      window.open(`mailto:${this.navParams.data.email}`, '_system');
     },100);
   }
 
