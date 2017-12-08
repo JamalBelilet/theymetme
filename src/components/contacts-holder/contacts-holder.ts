@@ -19,8 +19,22 @@ export class ContactsHolderComponent {
     email: string
   };
 
-  constructor() {
+  constructor(private callNumber:CallNumber) {
   
   }
+
+  callContact(){
+    setTimeout(() => {
+      window.open(`tel:${this.contact.phone}`, '_system');
+    },100);
+  }
+
+  sendMail(){
+    setTimeout(() => {
+      window.open(`mailto:${this.contact.email}`, '_system');
+    },100);
+  }
+
+
 
 }

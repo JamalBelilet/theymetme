@@ -34,7 +34,8 @@ import { ContactsHolderComponent } from '../components/contacts-holder/contacts-
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    NgxQRCodeModule
+    NgxQRCodeModule,
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -50,7 +51,7 @@ import { ContactsHolderComponent } from '../components/contacts-holder/contacts-
   providers: [
     StatusBar,
     SplashScreen,
-    BarcodeScanner,    
+    BarcodeScanner,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

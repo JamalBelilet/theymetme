@@ -6,13 +6,13 @@
     <p>{{contact.company}}</p>
     <ion-item>
         {{contact.phone}}
-      <button ion-button clear icon-only item-end icon-left>
+      <button (click)="callContact()" ion-button clear icon-only item-end icon-left>
         <ion-icon name="call"></ion-icon>
       </button>
     </ion-item>
     <ion-item>
         {{contact.email}}
-      <button ion-button clear icon-only item-end icon-left>
+      <button (click)="sendMail()" ion-button clear icon-only item-end icon-left>
         <ion-icon name="mail"></ion-icon>
       </button>
     </ion-item>
