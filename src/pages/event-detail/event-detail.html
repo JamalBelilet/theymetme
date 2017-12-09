@@ -46,6 +46,14 @@
       <p>{{event.description}}</p>
     </ion-item>
 
+    <ion-card>
+      <ion-card-header>
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+
     <ion-scroll scrollY style="margin-top: -1em;" >
       <ion-list >
         <contacts-holder *ngFor="let contact of event.contacts" [contact]="contact"></contacts-holder>
