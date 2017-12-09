@@ -38,7 +38,10 @@ export class EventDetailPage {
       
                  type: 'line',
                  data: {
-                     datasets: [
+                  labels:[ 
+                    "D1","D2","D3","D4","D5"
+                  ],                  
+                  datasets: [
                          {
                              label: "My First dataset",
                              fill: false,
@@ -58,19 +61,32 @@ export class EventDetailPage {
                              pointHoverBorderWidth: 2,
                              pointRadius: 1,
                              pointHitRadius: 10,
-                             data: [65, 59, 80, 81, 56, 55, 40],
+                             data: [4000, 2800, 3100, 2000,1000],
                              spanGaps: false,
                          },   
                      ]
                  },
                  options: {
-                  legend: {
-                     display: false
+                  scales: {
+                      yAxes: [{
+                          ticks: {
+                              beginAtZero: true
+                          }
+                      }]
                   },
-                  tooltips: {
-                     enabled: false
-                  }
-             }
+                  legend: {
+                         display: false
+                      },
+              }
+                //  ,
+                //  options: {
+                //   legend: {
+                //      display: false
+                //   },
+                //   tooltips: {
+                //      enabled: false
+                //   }
+            //  }
       
              });  }
     
