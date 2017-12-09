@@ -12,13 +12,21 @@ import 'rxjs/add/operator/switchMap';
 @Injectable()
 export class FirebaseProvider
 {
+
+  public userInfo$;
   constructor(private afd: AngularFireDatabase, private authService: AuthenticationServiceProvider) {
     console.log('Hello FirebaseProvider Provider');
+    this.userInfo$ = this.getUserInfo();
   }
 
   getBadges() {
     return this.authService.authState$.switchMap(
       val => this.afd.list('/'+val.uid+'/badges/')
+    );
+  }
+  getUserInfo() {
+    return this.authService.authState$.switchMap(
+      val => this.afd.object('/contacts/'+val.uid)
     );
   }
   getAllBadges() {
@@ -31,7 +39,7 @@ export class FirebaseProvider
     );
   }
   addToMyBadges(event) {
-    return this.authService.authState$.switchMap(
+    return this.authService.authState$.subscribe(
       val => this.afd.list('/'+val.uid+'/my-badges/').push(event)
     );
   }
@@ -50,7 +58,7 @@ export class FirebaseProvider
 
   getNotifications(){
     // return this.afd.list('/'+this.id+'/notifications/');
-    return this.authService.authState$.subscribe(
+    return this.authService.authState$.switchMap(
       val => this.afd.list('/'+val.uid+'/notifications/')
     );
     // return this.afd.list('/notifications/');

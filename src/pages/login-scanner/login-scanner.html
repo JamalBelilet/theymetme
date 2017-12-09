@@ -46,12 +46,13 @@
 
 
   <button style="z-index: 66" class="scanbtn" ion-button (click)="scanCode()" clear></button>
-  <button style="z-index: 66" class="loginout" *ngIf="!isLoggedIn" ion-button (click)="goToLogin()" clear>connection
+  <button style="z-index: 66" class="loginout" *ngIf="!isLoggedIn" ion-button (click)="goToLogin()" clear>connexion
   </button>
   <button style="z-index: 66" class="loginout deconnection" *ngIf="isLoggedIn" ion-button (click)="goTologscanner()"
-          clear>deconnection
+          clear>deconnexion
   </button>
 
+  <!--<h2>re</h2>-->
   <ion-slides class="events-slider" >
     <ion-slide spaceBetween="40" *ngFor="let event of events$ | async">
       <events-holder [event]="event" [navPush]="eventDetail" [navParams]="event"></events-holder>

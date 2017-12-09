@@ -82,8 +82,12 @@ page-login-scanner {
         bottom: 3em;
 
         margin-left: -5.2em;
-        color: #d82c7c;
-        background-image: url("../assets/imgs/buttonoutline.svg");
+        color: #d82c7cee;
+        background-image: none;
+        font-size: 85%;
+        //underl;
+        text-decoration: underline;
+
 
       }
     }

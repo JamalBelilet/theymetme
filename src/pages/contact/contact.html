@@ -18,11 +18,12 @@
       <ion-item padding  no-lines style="background: transparent; position: relative">
 
         <div class="avatar-container" item-left>
-          <img class="avatar" src="assets/imgs/DSC_0507.JPG">
+          <img class="avatar" src="assets/imgs/Facebook_head.png">
+
 
         </div >
         <div class="persona-info">
-          <h2 >{{user.name}}</h2>
+          <h2 >{{(firebaseProvider.userInfo$ | async)?.fullname}}</h2>
           <!--<p >{{user.company}}</p>-->
         </div>
         <ion-buttons item-right>
