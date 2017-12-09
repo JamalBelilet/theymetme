@@ -23,7 +23,6 @@ import {EventDetailPage} from '../pages/event-detail/event-detail';
 import {AddeventpagePage} from '../pages/addeventpage/addeventpage';
 import {MyeventsPage} from '../pages/myevents/myevents';
 import {DatePicker} from '@ionic-native/date-picker';
-import {ImagePicker} from '@ionic-native/image-picker';
 
 import {FirebaseProvider} from '../providers/firebase/firebase';
 import {HttpModule} from '@angular/http';
@@ -32,6 +31,7 @@ import {AuthenticationServiceProvider} from '../providers/authentication-service
 import {AngularFireModule} from 'angularfire2/angularfire2';
 import { AngularFireAuth} from 'angularfire2/auth';
 import {SignUpPage} from '../pages/sign-up/sign-up';
+import { ImagePicker } from '@ionic-native/image-picker';
 
 
 const config = {
@@ -67,8 +67,8 @@ const config = {
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
-    AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(config),
+    AngularFireDatabaseModule,   
+    AngularFireModule.initializeApp(config), 
     NgxQRCodeModule,
 
   ],
@@ -99,6 +99,7 @@ const config = {
     AngularFireAuth,
     AuthenticationServiceProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
+
   ]
 })
 export class AppModule {

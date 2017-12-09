@@ -10,8 +10,8 @@ import { ViewController, NavParams } from 'ionic-angular';
 @Component({
   template: `
   <ion-list>
-    <button ion-item full (click)="callContact()"><ion-icon  name="call" clear >{{navParams.data.phone}}</ion-icon></button>
-    <button ion-item full (click)="sendMail()"><ion-icon  name="mail" clear >{{navParams.data.email}}</ion-icon></button>
+    <button ion-item full *ngIf="navParams.data.phone" (click)="callContact()"><ion-icon  name="call" clear >{{navParams.data.phone}}</ion-icon></button>
+    <button ion-item full *ngIf="navParams.data.email" (click)="sendMail()"><ion-icon  name="mail" clear >{{navParams.data.email}}</ion-icon></button>
   </ion-list>
 `
 })
