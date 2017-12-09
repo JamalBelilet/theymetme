@@ -4,6 +4,7 @@ import {LoginPage} from '../login/login';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import {TabsPage} from '../tabs/tabs';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
+import {AuthenticationServiceProvider} from '../../providers/authentication-service/authentication-service';
 
 
 /**
@@ -19,14 +20,17 @@ import { FirebaseProvider } from '../../providers/firebase/firebase';
   templateUrl: 'login-scanner.html',
 })
 export class LoginScannerPage {
+  events$: any;
   isLoggedIn: any;
   scannedCode = null;
-  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams,private barCodeScanner: BarcodeScanner, public firebaseProvider: FirebaseProvider) {
+  constructor(public authService:AuthenticationServiceProvider, public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams,private barCodeScanner: BarcodeScanner, public firebaseProvider: FirebaseProvider) {
     this.isLoggedIn = navParams.get('isLoggedIn') || false;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginScannerPage');
+
+    this.events$ = this.firebaseProvider.getAllBadges();
   }
 
   goToLogin() {
@@ -35,6 +39,8 @@ export class LoginScannerPage {
   }
 
   goTologscanner() {
+    this.authService.signout();
+
     this.navCtrl.push(LoginScannerPage, {isLoggedIn: false});
   }
 
@@ -53,30 +59,30 @@ export class LoginScannerPage {
         alert.setTitle(event.name);
         alert.setSubTitle(event.address)
         alert.setMessage('de :  '+ event.dates.startDate + ' a : ' + event.dates.endDate );
-        let company = "my Company";
-        let mail = "email@eamil.email";
-        let phone = "0673477797";
+        let company = 'my Company';
+        let mail = 'email@eamil.email';
+        let phone = '0673477797';
 
         alert.addInput({
-          id: "company",
+          id: 'company',
           type: 'checkbox',
           label: 'company',
           name: 'company',
-          value: JSON.stringify({"company":company}),
+          value: JSON.stringify({'company':company}),
         });
 
         alert.addInput({
           type: 'checkbox',
           label: 'phone number',
           name: 'phone number',
-          value: JSON.stringify({"phone":phone}),
+          value: JSON.stringify({'phone':phone}),
         });
 
         alert.addInput({
           type: 'checkbox',
           label: 'email',
           name: 'email',
-          value: JSON.stringify({"email":mail}),
+          value: JSON.stringify({'email':mail}),
           checked: true
 
         });

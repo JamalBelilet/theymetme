@@ -15,8 +15,8 @@ import { FirebaseProvider } from '../../providers/firebase/firebase';
 export class HomePage {
   eventDetail =EventDetailPage;
 
-  events: FirebaseListObservable<any[]>;
-  
+  events;
+
   //   {
   //     image: 'assets/imgs/algeria20.png',
   //     name: 'Capio clemens gluten est.',
@@ -430,7 +430,7 @@ export class HomePage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private app: App,public firebaseProvider: FirebaseProvider) {
-    this.events = this.firebaseProvider.getBadges();    
+    this.events = this.firebaseProvider.getBadges();
   }
 
   ionViewDidLoad() {

@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
-
+import {AuthenticationServiceProvider} from '../authentication-service/authentication-service';
+import 'rxjs/add/operator/switchMap';
 /*
   Generated class for the FirebaseProvider provider.
 
@@ -11,47 +12,91 @@ import { AngularFireDatabase } from 'angularfire2/database';
 @Injectable()
 export class FirebaseProvider
 {
-  id = 1;
-  constructor(private afd: AngularFireDatabase) {
+  constructor(private afd: AngularFireDatabase, private authService: AuthenticationServiceProvider) {
     console.log('Hello FirebaseProvider Provider');
   }
 
   getBadges() {
-    return this.afd.list('/'+this.id+'/badges/');
+    return this.authService.authState$.switchMap(
+      val => this.afd.list('/'+val.uid+'/badges/')
+    );
+  }
+  getAllBadges() {
+    return this.afd.list('/badges/');
   }
 
   getMyBadges() {
-    return this.afd.list('/'+this.id+'/my-badges/');
+    return this.authService.authState$.switchMap(
+      val => this.afd.list('/'+val.uid+'/my-badges/')
+    );
+  }
+  addToMyBadges(event) {
+    return this.authService.authState$.switchMap(
+      val => this.afd.list('/'+val.uid+'/my-badges/').push(event)
+    );
   }
 
   addItem(name) {
-    this.afd.list('/'+this.id+'/badges/').push(name);
+    return this.authService.authState$.subscribe(
+      val => this.afd.list('/'+val.uid+'/badges/').push(name)
+    );
   }
 
   removeItem(id) {
-    this.afd.list('/'+this.id+'/badges/').remove(id);
+    return this.authService.authState$.subscribe(
+      val => this.afd.list('/'+val.uid+'/badges/').remove(id)
+    );
   }
 
   getNotifications(){
     // return this.afd.list('/'+this.id+'/notifications/');
-    return this.afd.list('/notifications/');
+    return this.authService.authState$.subscribe(
+      val => this.afd.list('/'+val.uid+'/notifications/')
+    );
+    // return this.afd.list('/notifications/');
   }
 
   getContacts(){
-    return this.afd.list('/'+this.id+'/contacts/');
+    return this.authService.authState$.switchMap(
+      val => this.afd.list('/'+val.uid+'/contacts/')
+    );
   }
 
   addNewEvent(event,data){
+
+
+
     event.startTime = event.dates.startDate;
     event.endTime = event.dates.endDate;
     event.dates.startDate = null;
     event.dates.end = null;
-    this.afd.list('/'+this.id+'/badges/').push(event);
-    let contact = {id:this.id,username:"Contact Name",img:"https://media.creativemornings.com/uploads/user/avatar/156068/small_Profile.jpg"};
-    for (let d of data ){
-      contact = Object.assign(contact,JSON.parse(d));
-    }
-    this.afd.list('/badge-contact/'+event.name.replace('.','')+'/').push(contact);
+    this.authService.authState$.subscribe(
+      val => this.afd.list('/'+val.uid+'/badges/').push(event)
+    );
+
+
+    this.authService.authState$.subscribe(
+      val => {
+
+        this.afd.object(`/${val}`).subscribe(
+          contact => {
+            for (let d of data ){
+              contact = Object.assign(contact,JSON.parse(d));
+            }
+
+            this.afd.list('/badge-contact/'+event.name.replace('.','')+'/').push(contact);
+          }
+        );
+
+
+      }
+    );
+    //
+    // let contact = {username:"Contact Name",img:"https://media.creativemornings.com/uploads/user/avatar/156068/small_Profile.jpg"};
+    // for (let d of data ){
+    //   contact = Object.assign(contact,JSON.parse(d));
+    // }
+    // this.afd.list('/badge-contact/'+event.name.replace('.','')+'/').push(contact);
   }
 
   getBadgeContacts(name){

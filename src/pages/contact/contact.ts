@@ -8,7 +8,7 @@ import { FirebaseProvider } from '../../providers/firebase/firebase';
   templateUrl: 'contact.html'
 })
 export class ContactPage {
-  contacts:FirebaseListObservable<any[]>;
+  contacts;
   //  any [] = [
   //   {
   //     username:"Contact 1",
@@ -90,7 +90,7 @@ export class ContactPage {
   };
 
   constructor(public navCtrl: NavController,public firebaseProvider: FirebaseProvider) {
-    this.contacts = this.firebaseProvider.getContacts();    
+    this.contacts = this.firebaseProvider.getContacts();
   }
 
 }

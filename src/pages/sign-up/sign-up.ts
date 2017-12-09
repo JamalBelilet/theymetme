@@ -68,6 +68,7 @@ export class SignUpPage {
   }
 
   signup() {
+    console.log(JSON.stringify(this.credentials));
     this.authService.signup(this.credentials)
       .then( _ => {
         //TODO adds contact to database

@@ -36,11 +36,12 @@ export class AddeventpagePage {
 
   __ev = 'fdsafweofnasdofjasdlf'
 
-  events: FirebaseListObservable<any[]>;
+
 
 
 
   _eventQrCodeData = JSON.stringify(this.eventQrCodeData);
+  private events;
 
   constructor(public firebaseProvider: FirebaseProvider, private platform: Platform,private imagePicker: ImagePicker, private datePicker: DatePicker, public navCtrl: NavController, public navParams: NavParams) {
   }

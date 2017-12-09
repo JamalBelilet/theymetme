@@ -9,7 +9,7 @@ import { FirebaseProvider } from '../../providers/firebase/firebase';
 })
 export class AboutPage {
 
-  notifications: FirebaseListObservable<any[]>;
+  notifications;
   // = [
   //   {
   //     title: "A hermetic form of futility is the booda-hood.",
@@ -37,8 +37,8 @@ export class AboutPage {
     company: 'Be Small'
   }
   constructor(public navCtrl: NavController, public navParams: NavParams,public firebaseProvider: FirebaseProvider) {
-    this.notifications = this.firebaseProvider.getNotifications();    
+    this.notifications = this.firebaseProvider.getNotifications();
   }
 
-  
+
 }

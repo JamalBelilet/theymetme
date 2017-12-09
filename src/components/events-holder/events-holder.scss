@@ -1,5 +1,22 @@
 events-holder {
 
+  .large-holder {
+    margin: 1em 1em 1em 1em;
+    box-shadow: 0px 0px .3em rgba(2,2,2,.3);
+    background-color: white;
+    padding: .5em .1em;
+    border-radius: .8em;
+
+
+    h2 {
+    }
+
+    .event-image {
+      width: 4em;
+      height: 40vh;
+      border-radius: .5em;
+    }
+  }
 
   .holder {
     margin: 1em 1em 1em 1em;

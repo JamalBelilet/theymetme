@@ -7,6 +7,7 @@ import {LoginScannerPage} from '../login-scanner/login-scanner';
 import {AddeventpagePage} from '../addeventpage/addeventpage';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { FirebaseProvider } from '../../providers/firebase/firebase';
+import {Observable} from 'rxjs/Observable';
 /**
  * Generated class for the MyeventsPage page.
  *
@@ -20,8 +21,8 @@ import { FirebaseProvider } from '../../providers/firebase/firebase';
   templateUrl: 'myevents.html',
 })
 export class MyeventsPage {
+  events: Observable<{}>;
   eventDetail =EventDetailPage;
-  events: FirebaseListObservable<any[]>;  
 
   user: any = {
     name: 'Searious Peace',
@@ -30,7 +31,7 @@ export class MyeventsPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private app: App,public firebaseProvider: FirebaseProvider) {
-    this.events = this.firebaseProvider.getMyBadges();        
+    this.events = this.firebaseProvider.getMyBadges();
   }
 
   ionViewDidLoad() {

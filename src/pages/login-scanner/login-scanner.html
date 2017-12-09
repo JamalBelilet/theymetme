@@ -6,29 +6,26 @@
 -->
 <!--<ion-header>-->
 
-  <!--<ion-toolbar>-->
-    <!--&lt;!&ndash;<ion-title>They Met Me</ion-title>&ndash;&gt;-->
-    <!--&lt;!&ndash;<ion-avatar end>&ndash;&gt;-->
-      <!--&lt;!&ndash;<img src="assets/imgs/avatar.png">&ndash;&gt;-->
-    <!--&lt;!&ndash;</ion-avatar>&ndash;&gt;-->
+<!--<ion-toolbar>-->
+<!--&lt;!&ndash;<ion-title>They Met Me</ion-title>&ndash;&gt;-->
+<!--&lt;!&ndash;<ion-avatar end>&ndash;&gt;-->
+<!--&lt;!&ndash;<img src="assets/imgs/avatar.png">&ndash;&gt;-->
+<!--&lt;!&ndash;</ion-avatar>&ndash;&gt;-->
 
 
+<!--<ion-buttons right>-->
 
-    <!--<ion-buttons right>-->
+<!--<button *ngIf="isLoggedIn" menuToggle ion-button icon-only color="royal" (click)="goToProfile()">-->
+<!--<ion-avatar>-->
 
-      <!--<button *ngIf="isLoggedIn" menuToggle ion-button icon-only color="royal" (click)="goToProfile()">-->
-        <!--<ion-avatar>-->
+<!--<img src="assets/imgs/avatar.png">-->
+<!--</ion-avatar>-->
+<!--</button>-->
+<!--</ion-buttons>-->
 
-          <!--<img src="assets/imgs/avatar.png">-->
-        <!--</ion-avatar>-->
-      <!--</button>-->
-    <!--</ion-buttons>-->
+<!--<ion-title>They Met Me</ion-title>-->
 
-    <!--<ion-title>They Met Me</ion-title>-->
-
-  <!--</ion-toolbar>-->
-
-
+<!--</ion-toolbar>-->
 
 
 <!--</ion-header>-->
@@ -36,7 +33,8 @@
 
 <ion-content padding>
 
-  <button class="profile-avatar" clear *ngIf="isLoggedIn" menuToggle ion-button icon-only color="royal" (click)="goToProfile()">
+  <button class="profile-avatar" clear *ngIf="isLoggedIn" menuToggle ion-button icon-only color="royal"
+          (click)="goToProfile()">
     <ion-avatar>
 
       <img src="assets/imgs/user.svg">
@@ -46,11 +44,18 @@
   <img class="logo" src="assets/imgs/logo.svg">
   <img class="logo-text" src="assets/imgs/textlogo.svg">
 
-  <blockquote>
-    Core doesn’t safely facilitate any sun — but the lover is what grows.
-  </blockquote>
 
-  <button class="scanbtn" ion-button (click)="scanCode()" clear></button>
-  <button class="loginout" *ngIf="!isLoggedIn" ion-button (click)="goToLogin()" clear>connection</button>
-  <button class="loginout deconnection" *ngIf="isLoggedIn" ion-button (click)="goTologscanner()" clear>deconnection</button>
+  <button style="z-index: 66" class="scanbtn" ion-button (click)="scanCode()" clear></button>
+  <button style="z-index: 66" class="loginout" *ngIf="!isLoggedIn" ion-button (click)="goToLogin()" clear>connection
+  </button>
+  <button style="z-index: 66" class="loginout deconnection" *ngIf="isLoggedIn" ion-button (click)="goTologscanner()"
+          clear>deconnection
+  </button>
+
+  <ion-slides class="events-slider" >
+    <ion-slide spaceBetween="40" *ngFor="let event of events$ | async">
+      <events-holder [event]="event" [navPush]="eventDetail" [navParams]="event"></events-holder>
+
+    </ion-slide>
+  </ion-slides>
 </ion-content>
