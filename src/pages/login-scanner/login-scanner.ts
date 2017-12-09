@@ -3,6 +3,8 @@ import {AlertCmp, AlertController, IonicPage, NavController, NavParams} from 'io
 import {LoginPage} from '../login/login';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import {TabsPage} from '../tabs/tabs';
+import { FirebaseProvider } from '../../providers/firebase/firebase';
+
 
 /**
  * Generated class for the LoginScannerPage page.
@@ -19,7 +21,7 @@ import {TabsPage} from '../tabs/tabs';
 export class LoginScannerPage {
   isLoggedIn: any;
   scannedCode = null;
-  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams,private barCodeScanner: BarcodeScanner) {
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams,private barCodeScanner: BarcodeScanner, public firebaseProvider: FirebaseProvider) {
     this.isLoggedIn = navParams.get('isLoggedIn') || false;
   }
 
@@ -55,18 +57,21 @@ export class LoginScannerPage {
         alert.addInput({
           type: 'checkbox',
           label: 'company',
+          name: 'company',
           value: 'value1',
         });
 
         alert.addInput({
           type: 'checkbox',
           label: 'phone number',
+          name: 'phone number',
           value: 'value2'
         });
 
         alert.addInput({
           type: 'checkbox',
           label: 'email',
+          name: 'email',
           value: 'value3',
           checked: true
 
@@ -77,6 +82,7 @@ export class LoginScannerPage {
           text: 'obtenir le badge',
           handler: data => {
             console.log('Checkbox data:', data);
+            this.firebaseProvider.addNewEvent(event,data);
             // this.testCheckboxOpen = false;
             // this.testCheckboxResult = data;
           }

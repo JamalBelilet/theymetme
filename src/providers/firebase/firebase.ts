@@ -39,4 +39,9 @@ export class FirebaseProvider
   getContacts(){
     return this.afd.list('/contacts/');        
   }
+
+  addNewEvent(event,data){
+    this.afd.list('/badges/').push({event});
+    this.afd.list('/badge-contact/'+event.name.replace('.','')+'/').push(data);    
+  }
 }

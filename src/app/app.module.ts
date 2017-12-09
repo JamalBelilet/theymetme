@@ -23,7 +23,6 @@ import {EventDetailPage} from '../pages/event-detail/event-detail';
 import {AddeventpagePage} from '../pages/addeventpage/addeventpage';
 import {MyeventsPage} from '../pages/myevents/myevents';
 import {DatePicker} from '@ionic-native/date-picker';
-import {ImagePicker} from '@ionic-native/image-picker';
 
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import { HttpModule } from '@angular/http';
@@ -61,8 +60,8 @@ const config = {
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
-    AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(config),
+    AngularFireDatabaseModule,   
+    AngularFireModule.initializeApp(config), 
     NgxQRCodeModule,
 
   ],
@@ -87,8 +86,8 @@ const config = {
     SplashScreen,
     BarcodeScanner,
     DatePicker,
-    ImagePicker,FirebaseProvider,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FirebaseProvider
   ]
 })
 export class AppModule {}
