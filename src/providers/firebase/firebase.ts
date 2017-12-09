@@ -9,7 +9,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
   and Angular DI.
 */
 @Injectable()
-export class FirebaseProvider  
+export class FirebaseProvider
 {
   id = 1;
   constructor(private afd: AngularFireDatabase) {
@@ -19,7 +19,7 @@ export class FirebaseProvider
   getBadges() {
     return this.afd.list('/'+this.id+'/badges/');
   }
- 
+
   getMyBadges() {
     return this.afd.list('/'+this.id+'/my-badges/');
   }
@@ -27,17 +27,18 @@ export class FirebaseProvider
   addItem(name) {
     this.afd.list('/'+this.id+'/badges/').push(name);
   }
- 
+
   removeItem(id) {
     this.afd.list('/'+this.id+'/badges/').remove(id);
   }
 
   getNotifications(){
-    return this.afd.list('/'+this.id+'/notifications/');    
+    // return this.afd.list('/'+this.id+'/notifications/');
+    return this.afd.list('/notifications/');
   }
 
   getContacts(){
-    return this.afd.list('/'+this.id+'/contacts/');        
+    return this.afd.list('/'+this.id+'/contacts/');
   }
 
   addNewEvent(event,data){
@@ -50,11 +51,11 @@ export class FirebaseProvider
     for (let d of data ){
       contact = Object.assign(contact,JSON.parse(d));
     }
-    this.afd.list('/badge-contact/'+event.name.replace('.','')+'/').push(contact);    
+    this.afd.list('/badge-contact/'+event.name.replace('.','')+'/').push(contact);
   }
 
   getBadgeContacts(name){
-    return this.afd.list('/badge-contact/'+name.replace('.','')+'/');            
+    return this.afd.list('/badge-contact/'+name.replace('.','')+'/');
   }
 
   createContact(credentials){
