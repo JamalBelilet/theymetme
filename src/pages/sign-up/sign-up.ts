@@ -5,6 +5,7 @@ import {TabsPage} from '../tabs/tabs';
 import {LoginScannerPage} from '../login-scanner/login-scanner';
 import {AuthenticationServiceProvider} from '../../providers/authentication-service/authentication-service';
 import {LoginPage} from '../login/login';
+import { FirebaseProvider } from '../../providers/firebase/firebase';
 // import {SignUpPage} from '../sign-up/sign-up';
 
 /**
@@ -28,6 +29,7 @@ export class SignUpPage {
     phone: string,
     password: string,
     linkedin: string,
+    uid:string,
 
   } = {
     fullname: '',
@@ -36,9 +38,10 @@ export class SignUpPage {
     phone: '',
     password: '',
     linkedin: '',
+    uid: ''
   };
 
-  constructor(private authService: AuthenticationServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private authService: AuthenticationServiceProvider, public navCtrl: NavController, public navParams: NavParams,private firebaseProvider:FirebaseProvider) {
   }
 
   ionViewDidLoad() {
@@ -67,9 +70,9 @@ export class SignUpPage {
   signup() {
     this.authService.signup(this.credentials)
       .then( _ => {
-
         //TODO adds contact to database
-
+        this.credentials.uid = _.uid;
+        this.firebaseProvider.createContact(this.credentials);
         this.login();
       });
   }

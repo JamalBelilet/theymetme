@@ -39,4 +39,8 @@ export class FirebaseProvider
   getContacts(){
     return this.afd.list('/contacts/');        
   }
+
+  createContact(credentials){
+    this.afd.list('/contacts/').push(credentials);
+  }
 }
