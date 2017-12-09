@@ -1,35 +1,38 @@
-import { NgModule, ErrorHandler } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
+import {NgModule, ErrorHandler} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
+import {MyApp} from './app.component';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
+import {AboutPage} from '../pages/about/about';
+import {ContactPage} from '../pages/contact/contact';
+import {HomePage} from '../pages/home/home';
+import {TabsPage} from '../pages/tabs/tabs';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import {StatusBar} from '@ionic-native/status-bar';
+import {SplashScreen} from '@ionic-native/splash-screen';
 import {LoginScannerPage} from '../pages/login-scanner/login-scanner';
 import {LoginPage} from '../pages/login/login';
 import {EventsPage} from '../pages/events/events';
 import {EventsHolderComponent} from '../components/events-holder/events-holder';
-import { NgxQRCodeModule} from 'ngx-qrcode2';
-import { BarcodeScanner} from '@ionic-native/barcode-scanner';
-import { ContactsHolderComponent } from '../components/contacts-holder/contacts-holder';
+import {NgxQRCodeModule} from 'ngx-qrcode2';
+import {BarcodeScanner} from '@ionic-native/barcode-scanner';
+import {ContactsHolderComponent} from '../components/contacts-holder/contacts-holder';
 import {ProfilePage} from '../pages/profile/profile';
-import { ContactMoreComponent } from '../components/contact-more/contact-more';
+import {ContactMoreComponent} from '../components/contact-more/contact-more';
 import {EventDetailPage} from '../pages/event-detail/event-detail';
 import {AddeventpagePage} from '../pages/addeventpage/addeventpage';
 import {MyeventsPage} from '../pages/myevents/myevents';
 import {DatePicker} from '@ionic-native/date-picker';
 import {ImagePicker} from '@ionic-native/image-picker';
 
-import { FirebaseProvider } from '../providers/firebase/firebase';
-import { HttpModule } from '@angular/http';
-import { AngularFireDatabaseModule } from 'angularfire2/database'
+import {FirebaseProvider} from '../providers/firebase/firebase';
+import {HttpModule} from '@angular/http';
+import {AngularFireDatabaseModule} from 'angularfire2/database'
 import {AuthenticationServiceProvider} from '../providers/authentication-service/authentication-service';
 import {AngularFireModule} from 'angularfire2/angularfire2';
+import { AngularFireAuth} from 'angularfire2/auth';
+import {SignUpPage} from '../pages/sign-up/sign-up';
+
 
 const config = {
   apiKey: 'AIzaSyB7NZ4odUf_vBalWkW5tHeWNqwGOR7I958',
@@ -57,7 +60,8 @@ const config = {
     ContactsHolderComponent,
     ContactMoreComponent,
     AddeventpagePage,
-    MyeventsPage
+    MyeventsPage,
+    SignUpPage
   ],
   imports: [
     BrowserModule,
@@ -82,7 +86,8 @@ const config = {
     ProfilePage,
     EventDetailPage,
     AddeventpagePage,
-    MyeventsPage
+    MyeventsPage,
+    SignUpPage
   ],
   providers: [
     StatusBar,
@@ -91,8 +96,10 @@ const config = {
     DatePicker,
     ImagePicker,
     FirebaseProvider,
+    AngularFireAuth,
     AuthenticationServiceProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
-export class AppModule {}
+export class AppModule {
+}

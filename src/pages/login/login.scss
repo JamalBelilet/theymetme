@@ -92,5 +92,34 @@ page-login {
       left: 50%;
       margin-left: -2.1em;
     }
+
+
+    .oauth {
+      display: flex;
+      flex-flow: nowrap column;
+      justify-content: center;
+      align-items: center;
+
+
+
+      position: absolute;
+      top: 6em;
+
+
+      margin: 1em 13%;
+
+      z-index: 999;
+      font-size: 1.2em;
+      width: 70%;
+      p {
+        flex: 1;
+      }
+      ion-icon {
+
+        font-size: 3.5em;
+
+
+      }
+    }
   }
 }

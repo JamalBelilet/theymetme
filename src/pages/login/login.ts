@@ -4,6 +4,7 @@ import {EventsPage} from '../events/events';
 import {TabsPage} from '../tabs/tabs';
 import {LoginScannerPage} from '../login-scanner/login-scanner';
 import {AuthenticationServiceProvider} from '../../providers/authentication-service/authentication-service';
+import {SignUpPage} from '../sign-up/sign-up';
 
 /**
  * Generated class for the LoginPage page.
@@ -54,5 +55,7 @@ export class LoginPage {
 
 
   }
-  getSignUpPage() {}
+  getSignUpPage() {
+    this.navCtrl.push(SignUpPage);
+  }
 }

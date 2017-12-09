@@ -25,4 +25,7 @@ export class AuthenticationServiceProvider {
     return this.afAuth.auth.createUserWithEmailAndPassword(reviewerCredentials.mail, reviewerCredentials.password);
   }
 
+
+
+
 }

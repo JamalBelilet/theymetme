@@ -10,6 +10,7 @@
     <!--<ion-title>They Met Me</ion-title>-->
   <!--</ion-navbar>-->
 
+
 <!--</ion-header>-->
 
 
@@ -19,7 +20,36 @@
 
   <p class="connection-text">connection</p>
 
+
+
+
   <div class="login">
+
+
+    <div class="oauth">
+      <!--<p>log in with: </p>-->
+      <ion-row>
+        <ion-col>
+          <button>
+            <img src="assets/imgs/001-search.svg">
+          </button>
+        </ion-col>
+        <ion-col>
+          <button>
+            <img src="assets/imgs/002-github-logo.svg">
+          </button>
+        </ion-col>
+        <ion-col>
+          <button>
+
+            <img src="assets/imgs/003-facebook.svg">
+
+          </button>
+        </ion-col>
+      </ion-row>
+    </div>
+
+
     <div class="inputs">
       <ion-input type="email" placeholder="Mail" [(ngModel)]="credentials.mail"></ion-input>
       <ion-input type="password" placeholder="Password" [(ngModel)]="credentials.password"></ion-input>
