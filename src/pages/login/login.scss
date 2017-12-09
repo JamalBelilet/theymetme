@@ -36,7 +36,9 @@ page-login {
 
     .logo-text {
       position: absolute;
-      top: 1em;
+      top: 2em;
+
+
       left: 1em;
       width: 8em;
     }
@@ -103,21 +105,24 @@ page-login {
 
 
       position: absolute;
-      top: 6em;
+      top: -9em;
+      left: -1.5em;
+
+
+
 
 
       margin: 1em 13%;
 
       z-index: 999;
-      font-size: 1.2em;
+
       width: 70%;
       p {
         flex: 1;
       }
-      ion-icon {
-
-        font-size: 3.5em;
-
+      img {
+        width: 4em;
+        height: 4em;
 
       }
     }
