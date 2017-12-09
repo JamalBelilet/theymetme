@@ -3,6 +3,8 @@ import {AlertCmp, AlertController, IonicPage, NavController, NavParams} from 'io
 import {LoginPage} from '../login/login';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import {TabsPage} from '../tabs/tabs';
+import { FirebaseProvider } from '../../providers/firebase/firebase';
+
 
 /**
  * Generated class for the LoginScannerPage page.
@@ -19,7 +21,7 @@ import {TabsPage} from '../tabs/tabs';
 export class LoginScannerPage {
   isLoggedIn: any;
   scannedCode = null;
-  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams,private barCodeScanner: BarcodeScanner) {
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams,private barCodeScanner: BarcodeScanner, public firebaseProvider: FirebaseProvider) {
     this.isLoggedIn = navParams.get('isLoggedIn') || false;
   }
 
@@ -51,23 +53,30 @@ export class LoginScannerPage {
         alert.setTitle(event.name);
         alert.setSubTitle(event.address)
         alert.setMessage('de :  '+ event.dates.startDate + ' a : ' + event.dates.endDate );
+        let company = "my Company";
+        let mail = "email@eamil.email";
+        let phone = "0673477797";
 
         alert.addInput({
+          id: "company",
           type: 'checkbox',
           label: 'company',
-          value: 'value1',
+          name: 'company',
+          value: JSON.stringify({"company":company}),
         });
 
         alert.addInput({
           type: 'checkbox',
           label: 'phone number',
-          value: 'value2'
+          name: 'phone number',
+          value: JSON.stringify({"phone":phone}),
         });
 
         alert.addInput({
           type: 'checkbox',
           label: 'email',
-          value: 'value3',
+          name: 'email',
+          value: JSON.stringify({"email":mail}),
           checked: true
 
         });
@@ -77,6 +86,7 @@ export class LoginScannerPage {
           text: 'obtenir le badge',
           handler: data => {
             console.log('Checkbox data:', data);
+            this.firebaseProvider.addNewEvent(JSON.parse(barcodeScanResult.text),data);
             // this.testCheckboxOpen = false;
             // this.testCheckboxResult = data;
 
