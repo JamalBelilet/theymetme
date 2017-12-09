@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {DatePicker} from '@ionic-native/date-picker';
-import {ImagePicker, ImagePickerOptions} from '@ionic-native/image-picker';
+import { ImagePicker } from '@ionic-native/image-picker';
 
 /**
  * Generated class for the AddeventpagePage page.
@@ -16,6 +16,8 @@ import {ImagePicker, ImagePickerOptions} from '@ionic-native/image-picker';
   templateUrl: 'addeventpage.html',
 })
 export class AddeventpagePage {
+
+  error_console = '';
 
   dates = {
     startDate: 'select start date',
@@ -46,6 +48,8 @@ export class AddeventpagePage {
     setTimeout(() => {
       window.open(`http://krep.000webhostapp.com?val=${encodeURI(JSON.stringify(this.eventQrCodeData))}`, '_system');
     }, 100);
+
+    this.navCtrl.pop();
   }
 
   chooseImage() {
@@ -53,7 +57,10 @@ export class AddeventpagePage {
 
     this.platform.ready().then(() => {
 
+      this.error_console  = 'reun';
       this.imagePicker.getPictures({maximumImagesCount: 1}).then((imageURIsArray) => {
+        this.error_console  = 'mou';
+
         console.log('Image URI: ' + imageURIsArray[0]);
       }, (err) => {
       });

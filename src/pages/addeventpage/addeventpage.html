@@ -81,12 +81,14 @@
 
           <ion-card >
             <ion-card-content >
-              <button ion-button (click)="chooseImage()">
-
-                <img  class="chooseanimage" src="assets/imgs/chooseanimage.svg">
+              <img  class="chooseanimage" src="assets/imgs/chooseanimage.svg">
+              <button ion-button clear (click)="chooseImage()">
+                <ion-icon name="md-create"></ion-icon>
               </button>
+
               <p>mettre une image representative
                 de votre evenement</p>
+              <p style="color: red;">{{error_console}}</p>
             </ion-card-content>
           </ion-card>
 
@@ -98,7 +100,9 @@
 
           <ion-card class="qrcodecontainer">
             <ion-card-content>
-              <ngx-qrcode [qrc-value]="_eventQrCodeData"></ngx-qrcode>
+              <div class="qrcode-container">
+                <ngx-qrcode [qrc-value]="_eventQrCodeData"></ngx-qrcode>
+              </div>
               <!--<img class="chooseanimage" src="assets/imgs/chooseanimage.svg">-->
               <!--<p>mettre une image representative-->
                 <!--de votre evenement</p>-->

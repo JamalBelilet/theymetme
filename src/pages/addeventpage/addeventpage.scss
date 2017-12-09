@@ -18,6 +18,13 @@ page-addeventpage {
   }
   .qrcodecontainer {
 
+    .qrcode-container {
+      background-color: transparent;
+      border: 2em solid transparent;
+      border-bottom-width: .5em;
+      border-top-width: .5em;
+    }
+
     button {
       z-index: 999;
       padding: 1em 2em;
@@ -49,7 +56,7 @@ page-addeventpage {
     font-size: 2em;
 
     ion-card {
-      height: auto;
+      height: 60vh;
       padding: 2em .8em;
       width: 94vw;
 

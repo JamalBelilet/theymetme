@@ -53,5 +53,4 @@
   <button class="scanbtn" ion-button (click)="scanCode()" clear></button>
   <button class="loginout" *ngIf="!isLoggedIn" ion-button (click)="goToLogin()" clear>connection</button>
   <button class="loginout deconnection" *ngIf="isLoggedIn" ion-button (click)="goTologscanner()" clear>deconnection</button>
-  <p *ngIf="scannedCode">{{ scannedCode }}</p>
 </ion-content>
