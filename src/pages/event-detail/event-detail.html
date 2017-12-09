@@ -15,19 +15,19 @@
         </ion-buttons>
       </ion-item>
 
-      <ion-item padding  no-lines style="background: transparent; position: relative">
+      <ion-item padding no-lines style="background: transparent; position: relative">
 
         <div class="avatar-container" item-left>
           <img class="avatar" src="assets/imgs/DSC_0507.JPG">
 
-        </div >
+        </div>
         <div class="persona-info">
-          <h2 >{{user.name}}</h2>
+          <h2>{{user.name}}</h2>
           <!--<p >{{user.company}}</p>-->
         </div>
         <ion-buttons item-right>
           <button class="settings-btn" ion-button clear style="color: white;">
-            <img class="settings" src="assets/imgs/setting.svg"/>
+            <img class="settings" src="assets/imgs/setting.svg" />
 
             <!--<ion-icon name="more"></ion-icon>-->
           </button>
@@ -46,8 +46,16 @@
       <p>{{event.description}}</p>
     </ion-item>
 
-    <ion-scroll scrollY style="margin-top: -1em;" >
-      <ion-list >
+    <ion-card>
+      <ion-card-header>
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-scroll scrollY style="margin-top: -1em;">
+      <ion-list>
         <contacts-holder *ngFor="let contact of event.contacts" [contact]="contact"></contacts-holder>
       </ion-list>
     </ion-scroll>
