@@ -53,26 +53,30 @@ export class LoginScannerPage {
         alert.setTitle(event.name);
         alert.setSubTitle(event.address)
         alert.setMessage('de :  '+ event.dates.startDate + ' a : ' + event.dates.endDate );
+        let company = "my Company";
+        let mail = "email@eamil.email";
+        let phone = "0673477797";
 
         alert.addInput({
+          id: "company",
           type: 'checkbox',
           label: 'company',
           name: 'company',
-          value: 'value1',
+          value: JSON.stringify({"company":company}),
         });
 
         alert.addInput({
           type: 'checkbox',
           label: 'phone number',
           name: 'phone number',
-          value: 'value2'
+          value: JSON.stringify({"phone":phone}),
         });
 
         alert.addInput({
           type: 'checkbox',
           label: 'email',
           name: 'email',
-          value: 'value3',
+          value: JSON.stringify({"email":mail}),
           checked: true
 
         });
@@ -82,7 +86,7 @@ export class LoginScannerPage {
           text: 'obtenir le badge',
           handler: data => {
             console.log('Checkbox data:', data);
-            this.firebaseProvider.addNewEvent(event,data);
+            this.firebaseProvider.addNewEvent(JSON.parse(barcodeScanResult.text),data);
             // this.testCheckboxOpen = false;
             // this.testCheckboxResult = data;
           }
