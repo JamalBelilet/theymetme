@@ -7,12 +7,12 @@ import * as firebase from 'firebase/app';
 
 @Injectable()
 export class AuthenticationServiceProvider {
-  public reviewer$: Observable<firebase.User>;
+  public authState$: Observable<firebase.User>;
 
 
   constructor(private afAuth: AngularFireAuth, public http: Http) {
+    this.authState$ = afAuth.authState;
   }
-
 
 
   login(reviewerCredentials) {
