@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {EventsPage} from '../events/events';
 import {TabsPage} from '../tabs/tabs';
 import {LoginScannerPage} from '../login-scanner/login-scanner';
+import {AuthenticationServiceProvider} from '../../providers/authentication-service/authentication-service';
 
 /**
  * Generated class for the LoginPage page.
@@ -26,7 +27,7 @@ export class LoginPage {
     password: ''
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private authService: AuthenticationServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -34,8 +35,23 @@ export class LoginPage {
   }
 
 
+
+
   login() {
-    this.navCtrl.setRoot(LoginScannerPage, {isLoggedIn: true});
+
+    const _ = this;
+    this.authService
+      .login(this.credentials)
+      .then($ => {
+
+
+        console.log('logget wald l8ram')
+
+        this.navCtrl.setRoot(LoginScannerPage, {isLoggedIn: true});
+      })
+      .catch(error => {});
+
+
 
   }
   getSignUpPage() {}

@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {DatePicker} from '@ionic-native/date-picker';
 import { ImagePicker } from '@ionic-native/image-picker';
+import {FirebaseProvider} from '../../providers/firebase/firebase';
+import {FirebaseListObservable} from 'angularfire2/database';
 
 /**
  * Generated class for the AddeventpagePage page.
@@ -34,14 +36,18 @@ export class AddeventpagePage {
 
   __ev = 'fdsafweofnasdofjasdlf'
 
+  events: FirebaseListObservable<any[]>;
+
+
 
   _eventQrCodeData = JSON.stringify(this.eventQrCodeData);
 
-  constructor(private platform: Platform,private imagePicker: ImagePicker, private datePicker: DatePicker, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public firebaseProvider: FirebaseProvider, private platform: Platform,private imagePicker: ImagePicker, private datePicker: DatePicker, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddeventpagePage');
+    this.events = this.firebaseProvider.getBadges();
   }
 
   generateQrCodePDF() {

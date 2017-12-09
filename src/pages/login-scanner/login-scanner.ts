@@ -79,6 +79,8 @@ export class LoginScannerPage {
             console.log('Checkbox data:', data);
             // this.testCheckboxOpen = false;
             // this.testCheckboxResult = data;
+
+            this.goToProfile()
           }
         });
         alert.present();

@@ -37,92 +37,100 @@
       <!--</ion-buttons>-->
       <!--</ion-item>-->
 
-      <ion-slides style="margin-top: -1em;" text-wrap>
-
-        <ion-slide class="slide-as-card">
-
-          <!--<ion-item style="background: transparent; width: 85vw;  position: absolute; right: -4vw; bottom: 1em;">-->
-          <!--<ion-label floating>event name</ion-label>-->
-          <!--<ion-input></ion-input>-->
-          <!--</ion-item>-->
-          <!--<ion-item style="background: transparent; width: 85vw;  position: absolute; right: -4vw; bottom: 7em;">-->
-          <!--<ion-label floating>address</ion-label>-->
-          <!--<ion-input></ion-input>-->
-          <!--</ion-item>-->
-
-          <ion-card>
-            <ion-card-content>
-
-              <ion-item style="background: transparent; width: 85vw;">
-                <ion-label stacked>name</ion-label>
-                <ion-input [(ngModel)]="eventQrCodeData.name" placeholder="ex: jam@goo.co"></ion-input>
-              </ion-item>
-
-              <ion-item style="background: transparent; width: 85vw; ">
-                <ion-label stacked>address</ion-label>
-                <ion-input [(ngModel)]="eventQrCodeData.address" placeholder="ex: jam@goo.co"></ion-input>
-              </ion-item>
-
-              <ion-item>
-                <button ion-button outline (click)="getStartDate()"><span
-                  class="date-picker">du: {{eventQrCodeData.dates.startDate}}</span></button>
-              </ion-item>
-
-              <ion-item>
-                <button ion-button outline (click)="getEndDate()"><span class="date-picker">a: {{eventQrCodeData.dates.endDate}}</span>
-                </button>
-              </ion-item>
-
-            </ion-card-content>
-          </ion-card>
-        </ion-slide>
-        <ion-slide class="slide-as-card">
-
-
-          <ion-card >
-            <ion-card-content >
-              <img  class="chooseanimage" src="assets/imgs/chooseanimage.svg">
-              <button ion-button clear (click)="chooseImage()">
-                <ion-icon name="md-create"></ion-icon>
-              </button>
-
-              <p>mettre une image representative
-                de votre evenement</p>
-              <p style="color: red;">{{error_console}}</p>
-            </ion-card-content>
-          </ion-card>
-
-
-        </ion-slide>
-
-        <ion-slide class="slide-as-card">
-
-
-          <ion-card class="qrcodecontainer">
-            <ion-card-content>
-              <div class="qrcode-container">
-                <ngx-qrcode [qrc-value]="_eventQrCodeData"></ngx-qrcode>
-              </div>
-              <!--<img class="chooseanimage" src="assets/imgs/chooseanimage.svg">-->
-              <!--<p>mettre une image representative-->
-                <!--de votre evenement</p>-->
-              <button ion-button outline (click)="generateQrCodePDF()">terminer</button>
-
-            </ion-card-content>
-          </ion-card>
-
-
-
-
-
-        </ion-slide>
-
-      </ion-slides>
 
     </div>
 
 
-  </div>
+    <ion-slides style="margin-top: -1em;" text-wrap>
 
+      <ion-slide class="slide-as-card">
+
+        <!--<ion-item style="background: transparent; width: 85vw;  position: absolute; right: -4vw; bottom: 1em;">-->
+        <!--<ion-label floating>event name</ion-label>-->
+        <!--<ion-input></ion-input>-->
+        <!--</ion-item>-->
+        <!--<ion-item style="background: transparent; width: 85vw;  position: absolute; right: -4vw; bottom: 7em;">-->
+        <!--<ion-label floating>address</ion-label>-->
+        <!--<ion-input></ion-input>-->
+        <!--</ion-item>-->
+
+        <ion-card>
+          <ion-card-content>
+
+            <ion-item style="background: transparent; width: 85vw;">
+              <ion-label stacked>name</ion-label>
+              <ion-input [(ngModel)]="eventQrCodeData.name" placeholder="ex: jam@goo.co"></ion-input>
+            </ion-item>
+
+            <ion-item style="background: transparent; width: 85vw; ">
+              <ion-label stacked>address</ion-label>
+              <ion-input [(ngModel)]="eventQrCodeData.address" placeholder="ex: jam@goo.co"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <button ion-button outline (click)="getStartDate()"><span
+                class="date-picker">du: {{eventQrCodeData.dates.startDate}}</span></button>
+            </ion-item>
+
+            <ion-item>
+              <button ion-button outline (click)="getEndDate()"><span class="date-picker">a: {{eventQrCodeData.dates.endDate}}</span>
+              </button>
+            </ion-item>
+
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+      <ion-slide class="slide-as-card">
+
+
+        <ion-card>
+          <ion-card-content>
+            <img class="chooseanimage" src="assets/imgs/chooseanimage.svg">
+            <button ion-button clear (click)="chooseImage()">
+              <ion-icon name="md-create"></ion-icon>
+            </button>
+
+            <p>mettre une image representative
+              de votre evenement</p>
+            <p style="color: red;">{{error_console}}</p>
+          </ion-card-content>
+        </ion-card>
+
+
+      </ion-slide>
+      <ion-slide class="slide-as-card" style="padding: 0; margin: 0em; height: 85vh; background: transparent">
+
+        <ion-scroll scrollY style="padding: 0; margin: -1em; height: 85vh;  background: transparent">
+          <events-holder *ngFor="let event of (events | async)" [event]="event" [navPush]="eventDetail"
+                         [navParams]="event"></events-holder>
+        </ion-scroll>
+
+
+      </ion-slide>
+
+      <ion-slide class="slide-as-card">
+
+
+        <ion-card class="qrcodecontainer">
+          <ion-card-content>
+            <div class="qrcode-container">
+              <ngx-qrcode [qrc-value]="_eventQrCodeData"></ngx-qrcode>
+            </div>
+            <!--<img class="chooseanimage" src="assets/imgs/chooseanimage.svg">-->
+            <!--<p>mettre une image representative-->
+            <!--de votre evenement</p>-->
+            <button ion-button outline (click)="generateQrCodePDF()">terminer</button>
+
+          </ion-card-content>
+        </ion-card>
+
+
+      </ion-slide>
+
+    </ion-slides>
+
+
+
+  </div>
 
 </ion-content>

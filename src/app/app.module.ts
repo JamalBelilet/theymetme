@@ -28,16 +28,18 @@ import {ImagePicker} from '@ionic-native/image-picker';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import { HttpModule } from '@angular/http';
 import { AngularFireDatabaseModule } from 'angularfire2/database'
-import { AngularFireModule } from 'angularfire2';
+import {AuthenticationServiceProvider} from '../providers/authentication-service/authentication-service';
+import {AngularFireModule} from 'angularfire2/angularfire2';
 
 const config = {
-  apiKey: "AIzaSyB7NZ4odUf_vBalWkW5tHeWNqwGOR7I958",
-  authDomain: "theymetme-be7fa.firebaseapp.com",
-  databaseURL: "https://theymetme-be7fa.firebaseio.com",
-  projectId: "theymetme-be7fa",
-  storageBucket: "theymetme-be7fa.appspot.com",
-  messagingSenderId: "44686374750"
+  apiKey: 'AIzaSyB7NZ4odUf_vBalWkW5tHeWNqwGOR7I958',
+  authDomain: 'theymetme-be7fa.firebaseapp.com',
+  databaseURL: 'https://theymetme-be7fa.firebaseio.com',
+  projectId: 'theymetme-be7fa',
+  storageBucket: 'theymetme-be7fa.appspot.com',
+  messagingSenderId: '44686374750'
 };
+
 @NgModule({
 
   declarations: [
@@ -87,7 +89,9 @@ const config = {
     SplashScreen,
     BarcodeScanner,
     DatePicker,
-    ImagePicker,FirebaseProvider,
+    ImagePicker,
+    FirebaseProvider,
+    AuthenticationServiceProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
